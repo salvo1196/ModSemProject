@@ -11,6 +11,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:frapo="http://purl.org/cerif/frapo/"
      xmlns:schema="http://www.semanticweb.org/OntologiaRicercaLavoro#schema:"
      xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
@@ -21,6 +22,9 @@
         <dc:creator>Salvatore Latino</dc:creator>
         <dc:description>Si propone un’ontologia di ricerca/consultazione che permetta collegare chi cerca lavoro con chi offre lavoro. Quindi, che permetta un duplice vantaggio: Per le aziende, trovare il candidato ideale in maniera più semplice, mentre per il singolo lavoratore trovare il lavoro che più gli si addice.</dc:description>
         <dc:title>Ontologia Ricerca del lavoro</dc:title>
+        <vann:preferredNamespacePrefix>jso</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>http://www.semanticweb.org/OntologiaRicercaLavoro#</vann:preferredNamespaceUri>
+        <rdfs:label>Job Search Ontology (JSO)</rdfs:label>
     </owl:Ontology>
     
 
@@ -51,6 +55,18 @@
     <!-- http://purl.org/dc/elements/1.1/title -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
     
 
 
