@@ -2459,6 +2459,16 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#secondoLavoratoreAmazon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#secondoLavoratoreAmazon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <lavoraPer rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Amazon"/>
+        <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Jeff_Bezos"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#settore_Chimica -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_Chimica">
