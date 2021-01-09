@@ -635,6 +635,17 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#professione -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#professione">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#recapitoTelefonico -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#recapitoTelefonico">
@@ -1788,6 +1799,16 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Jeff_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Jeff_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <lavoraPer rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Amazon"/>
+        <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Jeff_Bezos"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Marco -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Marco">
@@ -1892,11 +1913,12 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
         <contrattoProposto rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Determinato"/>
         <ePubblicato rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Apple"/>
+        <haCompetenzeRichieste rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Computer"/>
         <haCompetenzeRichieste rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_organizzazione"/>
         <frapo:hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Milano</frapo:hasCountry>
         <benefits>Asilo nido, corso di yoga</benefits>
-        <competenzeRichiesteDettagli>trello, diagrammi di Gant</competenzeRichiesteDettagli>
-        <descrizione>Si cerca developer per lo sviluppo di sofisticati algortimi per la ricerca nello spazio delle ipotesi</descrizione>
+        <competenzeRichiesteDettagli>sviluppatore app IOS, Swift</competenzeRichiesteDettagli>
+        <descrizione>Si cerca uno sviluppatore per la creazione di applicazioni IOS</descrizione>
         <oreDiLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</oreDiLavoro>
         <salarioMensile rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1800.0</salarioMensile>
     </owl:NamedIndividual>
@@ -1911,7 +1933,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <ePubblicato rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Orogel"/>
         <haCompetenzeRichieste rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_tecniche"/>
         <frapo:hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Potenza</frapo:hasCountry>
-        <competenzeRichiesteDettagli rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Analista chimico</competenzeRichiesteDettagli>
+        <competenzeRichiesteDettagli rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Analista chimico, C2 inglese</competenzeRichiesteDettagli>
         <descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">analisi tecniche dei componenti nutrizionali</descrizione>
         <oreDiLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</oreDiLavoro>
         <salarioMensile rdf:datatype="http://www.w3.org/2001/XMLSchema#float">500.0</salarioMensile>
@@ -2052,6 +2074,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze_Vittoria"/>
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Vittoria"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#certificatiLingua_Vittoria"/>
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Vittoria"/>
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Vittoria"/>
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_triennale_Vittoria"/>
@@ -2076,7 +2099,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#certificatiLingua_Jeff_Bezos">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CertificatiLingua"/>
-        <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C2 Inglese</nome>
+        <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C2 inglese</nome>
     </owl:NamedIndividual>
     
 
@@ -2086,6 +2109,15 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#certificatiLingua_Marco">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CertificatiLingua"/>
         <nome>C1 inglese, A2 francese</nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#certificatiLingua_Vittoria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#certificatiLingua_Vittoria">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CertificatiLingua"/>
+        <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C2 inglese, B2 francese, B2 spagnolo, A2 russo</nome>
     </owl:NamedIndividual>
     
 
@@ -2152,7 +2184,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenze_Marco">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
         <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Computer"/>
-        <competenzeDettagli>excel, power point</competenzeDettagli>
+        <competenzeDettagli>Swift, Flutter, Android, Java, C++</competenzeDettagli>
     </owl:NamedIndividual>
     
 
@@ -2321,6 +2353,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <anniCarriera rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</anniCarriera>
         <dataNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1964-01-12</dataNascita>
         <nazionalita rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USA</nazionalita>
+        <professione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Direttore</professione>
         <foaf:firstName>Jeff</foaf:firstName>
         <foaf:gender>Maschio</foaf:gender>
         <foaf:surname>Bezos</foaf:surname>
@@ -2340,6 +2373,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <genere>maschio</genere>
         <nazionalita>Italiana</nazionalita>
         <nome>Marco Dionisio</nome>
+        <professione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">impiegato</professione>
     </owl:NamedIndividual>
     
 
@@ -2354,6 +2388,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <anniCarriera rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</anniCarriera>
         <dataNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1984-05-14</dataNascita>
         <nazionalita rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USA</nazionalita>
+        <professione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disoccupato</professione>
         <foaf:firstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mark</foaf:firstName>
         <foaf:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Maschio</foaf:gender>
         <foaf:surname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zuckemberg</foaf:surname>
@@ -2371,6 +2406,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <anniCarriera rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</anniCarriera>
         <dataNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1997-04-24</dataNascita>
         <nazionalita rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inglese</nazionalita>
+        <professione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">studente</professione>
         <foaf:firstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vittoria</foaf:firstName>
         <foaf:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Femmina</foaf:gender>
         <foaf:surname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gibaudo</foaf:surname>
@@ -2467,16 +2503,6 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#retiNeurali">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#RetiNeurali"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#secondoLavoratoreAmazon -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#secondoLavoratoreAmazon">
-        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
-        <lavoraPer rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Amazon"/>
-        <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Jeff_Bezos"/>
     </owl:NamedIndividual>
     
 
