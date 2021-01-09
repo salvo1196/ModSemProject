@@ -872,6 +872,14 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Automobilistico"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda">
@@ -1699,6 +1707,31 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CEO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CEO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CEO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
+        <contiene rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Elon_Musk"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Jeff_Bezos -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Jeff_Bezos">
@@ -1747,6 +1780,16 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze_Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze_Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+        <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_organizzazione"/>
+        <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_tecniche"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze_Vittoria -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze_Vittoria">
@@ -1761,6 +1804,15 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Determinato -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Determinato"/>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Elon_Musk"/>
+    </owl:NamedIndividual>
     
 
 
@@ -1782,6 +1834,23 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali_Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali_Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+        <foaf:haPersonalmailbox rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Elon_Musk"/>
+        <foaf:haPhone rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Elon_Musk"/>
+        <anniCarriera rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</anniCarriera>
+        <dataNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1986-07-19</dataNascita>
+        <nazionalita rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USA</nazionalita>
+        <professione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inventore</professione>
+        <foaf:firstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Elon</foaf:firstName>
+        <foaf:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">maschio</foaf:gender>
+        <foaf:surname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Musk</foaf:surname>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Italia -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Italia"/>
@@ -1795,16 +1864,6 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <lavoraPer rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Amazon"/>
         <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Jeff_Bezos"/>
         <cercaLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cercaLavoro>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Jeff_Musk -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Jeff_Musk">
-        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
-        <lavoraPer rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Amazon"/>
-        <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Jeff_Bezos"/>
     </owl:NamedIndividual>
     
 
@@ -1949,6 +2008,15 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AttivitaPrincipali"/>
+        <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Invetore del primo modello di tesla e finanziatore di quest&apos;ultima.</nome>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Jeff_Bezos -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Jeff_Bezos">
@@ -2034,6 +2102,19 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_OttoVolante">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
         <numeroSedi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</numeroSedi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze_Elon_Musk"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali_Elon_Musk"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Elon_Musk"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#dottorato_Elon_Musk"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Elon_Musk"/>
     </owl:NamedIndividual>
     
 
@@ -2208,12 +2289,31 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#dottorato_Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#dottorato_Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Dottorato"/>
+        <haSettoreStudi rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive"/>
+        <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Auto a guida autonoma per uso urbano</nome>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#dottorato_Jeff_Bezos -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#dottorato_Jeff_Bezos">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Dottorato"/>
         <haSettoreStudi rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#retiNeurali"/>
         <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ecommerce avanzato con utilizzo di AI</nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#email_Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#mailbox"/>
+        <email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">elonMusk90@gmail.com</email>
     </owl:NamedIndividual>
     
 
@@ -2294,6 +2394,15 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#foto_jeff_Bezos">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
         <schema:image rdf:resource="https://www.nanopress.it/wp-content/uploads/sites/17/2018/02/Immagini-profilo-Facebook.jpg"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
+        <haRuolo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CEO"/>
     </owl:NamedIndividual>
     
 
@@ -2468,6 +2577,15 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#manager">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Manager"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone"/>
+        <recapitoTelefonico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3556463435</recapitoTelefonico>
     </owl:NamedIndividual>
     
 
