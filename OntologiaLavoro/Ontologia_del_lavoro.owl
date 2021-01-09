@@ -456,6 +456,16 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#cercaLavoro -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#cercaLavoro">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#competenzeDettagli -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenzeDettagli">
@@ -1773,6 +1783,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
         <lavoraPer rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Amazon"/>
         <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Jeff_Bezos"/>
+        <cercaLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cercaLavoro>
     </owl:NamedIndividual>
     
 
@@ -2029,6 +2040,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenze_Marco"/>
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Marco"/>
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Marco"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_specialistica_Marco"/>
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_triennale_Marco"/>
     </owl:NamedIndividual>
     
