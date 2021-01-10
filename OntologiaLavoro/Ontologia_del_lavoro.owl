@@ -662,6 +662,15 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#viveIn -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#viveIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://xmlns.com/foaf/0.1/firstName -->
 
     <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/firstName">
@@ -1844,6 +1853,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <dataNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1986-07-19</dataNascita>
         <nazionalita rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USA</nazionalita>
         <professione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inventore</professione>
+        <viveIn>Roma</viveIn>
         <foaf:firstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Elon</foaf:firstName>
         <foaf:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">maschio</foaf:gender>
         <foaf:surname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Musk</foaf:surname>
@@ -1972,6 +1982,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
         <contrattoProposto rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Determinato"/>
         <ePubblicato rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Apple"/>
+        <haCompetenzeRichieste rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_AltreCompetenze"/>
         <haCompetenzeRichieste rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Computer"/>
         <haCompetenzeRichieste rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_organizzazione"/>
         <frapo:hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Milano</frapo:hasCountry>
@@ -1996,6 +2007,21 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">analisi tecniche dei componenti nutrizionali</descrizione>
         <oreDiLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</oreDiLavoro>
         <salarioMensile rdf:datatype="http://www.w3.org/2001/XMLSchema#float">500.0</salarioMensile>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#annuncio_Tesla -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#annuncio_Tesla">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <contrattoProposto rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Determinato"/>
+        <ePubblicato rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Tesla"/>
+        <haCompetenzeRichieste rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_tecniche"/>
+        <frapo:hasCountry>Roma</frapo:hasCountry>
+        <descrizione>Si propone un lavoro a tempo determinato per la relaizzazione di una nuova vettura della casa automobilistica Tesla</descrizione>
+        <oreDiLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</oreDiLavoro>
+        <salarioMensile rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2100.0</salarioMensile>
     </owl:NamedIndividual>
     
 
@@ -2102,6 +2128,16 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_OttoVolante">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
         <numeroSedi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</numeroSedi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Tesla -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Tesla">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <haSedePrincipaleIn rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Italia"/>
+        <haSettoreAzienda rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive"/>
     </owl:NamedIndividual>
     
 
@@ -2463,6 +2499,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <dataNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1964-01-12</dataNascita>
         <nazionalita rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USA</nazionalita>
         <professione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Direttore</professione>
+        <viveIn>New York</viveIn>
         <foaf:firstName>Jeff</foaf:firstName>
         <foaf:gender>Maschio</foaf:gender>
         <foaf:surname>Bezos</foaf:surname>
@@ -2483,6 +2520,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <nazionalita>Italiana</nazionalita>
         <nome>Marco Dionisio</nome>
         <professione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">impiegato</professione>
+        <viveIn>Catania</viveIn>
     </owl:NamedIndividual>
     
 
@@ -2498,6 +2536,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <dataNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1984-05-14</dataNascita>
         <nazionalita rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USA</nazionalita>
         <professione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disoccupato</professione>
+        <viveIn>Manhattan</viveIn>
         <foaf:firstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mark</foaf:firstName>
         <foaf:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Maschio</foaf:gender>
         <foaf:surname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zuckemberg</foaf:surname>
@@ -2516,6 +2555,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <dataNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1997-04-24</dataNascita>
         <nazionalita rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inglese</nazionalita>
         <professione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">studente</professione>
+        <viveIn>Parigi</viveIn>
         <foaf:firstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vittoria</foaf:firstName>
         <foaf:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Femmina</foaf:gender>
         <foaf:surname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gibaudo</foaf:surname>
