@@ -1,0 +1,2794 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/OntologiaRicercaLavoro#"
+     xml:base="http://www.semanticweb.org/OntologiaRicercaLavoro"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:p0="http://www.semanticweb.org/OntologiaRicercaLavoro#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:wot="http://xmlns.com/wot/0.1/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:frapo="http://purl.org/cerif/frapo/"
+     xmlns:schema="http://www.semanticweb.org/OntologiaRicercaLavoro#schema:"
+     xmlns:objectrole="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl"/>
+        <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
+        <dc:creator>Pietro Pettinato</dc:creator>
+        <dc:creator>Salvatore Latino</dc:creator>
+        <dc:description>Si propone un’ontologia di ricerca/consultazione che permetta collegare chi cerca lavoro con chi offre lavoro. Quindi, che permetta un duplice vantaggio: Per le aziende, trovare il candidato ideale in maniera più semplice, mentre per il singolo lavoratore trovare il lavoro che più gli si addice.</dc:description>
+        <dc:title>Job Search Ontology (JSO)</dc:title>
+        <vann:preferredNamespacePrefix>jso</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>http://www.semanticweb.org/OntologiaRicercaLavoro#</vann:preferredNamespaceUri>
+        <rdfs:label>Job Search Ontology</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#schema:image -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#schema:image">
+        <rdfs:comment rdf:resource="https://www.nanopress.it/wp-content/uploads/sites/17/2018/02/Immagini-profilo-Facebook.jpg"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/cerif/frapo/employs -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/cerif/frapo/employs">
+        <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haLavoratore"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#lavoraPer"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <rdfs:comment>Un object property che collega un agente che dà lavoro a un agente dipendente, ad esempio una persona o un&apos;organizzazione, che è tipicamente impiegato per svolgere un lavoro specifico in cambio di un pagamento.</rdfs:comment>
+        <rdfs:label>frapo:employs</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/cerif/frapo/hasCurriculumVitae -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/cerif/frapo/hasCurriculumVitae">
+        <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#possiede"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2000/10/swap/pim/contact#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
+        <rdfs:comment>An object property linking a person to an on-line version of that person&apos;s curriculum vitae.</rdfs:comment>
+        <rdfs:label>frapo:hasCurriculumVitae</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/cerif/frapo/isEmployedBy -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/cerif/frapo/isEmployedBy">
+        <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#lavoraPer"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:comment>Una object property che collega un agente dipendente, tipicamente una persona o un&apos;organizzazione, a un agente che dà lavoro.</rdfs:comment>
+        <rdfs:label>frapo:isEmployedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CV_è_di -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_è_di">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#possiede"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#contiene -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#contiene">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#èContenutoIn"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#contrattoProposto -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#contrattoProposto">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Contratto"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haContratto"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#ePubblicato -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#ePubblicato">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#pubblica"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#eUnRuoloDi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#eUnRuoloDi">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haRuolo"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#haCampo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haCampo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#haCompetenze -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haCompetenze">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#haCompetenzeRichieste -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haCompetenzeRichieste">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#haContratto -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haContratto">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Contratto"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#haLavoratore -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haLavoratore">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#lavoraPer"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#haRuolo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haRuolo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#haSedePrincipaleIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSedePrincipaleIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Nazione"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAnnuncio -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAnnuncio">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#ePubblicato"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAzienda"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAzienda -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAzienda">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreDiInteresse -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreDiInteresse">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#lavoraPer"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAzienda"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#possiede"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#contiene"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haCampo"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreStudi"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreStudi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreStudi">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#StudiUniversitari"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#lavoraNelSettore -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#lavoraNelSettore">
+        <owl:equivalentProperty rdf:resource="http://xmlns.com/foaf/0.1/topic_interest"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#lavoraPer"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAzienda"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#lavoraPer -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#lavoraPer">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#possiede -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#possiede">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#pubblica -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#pubblica">
+        <owl:equivalentProperty rdf:resource="http://xmlns.com/foaf/0.1/made"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#èContenutoIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#èContenutoIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/haPersonalmailbox -->
+
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/haPersonalmailbox">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/img -->
+
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/img">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/made -->
+
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/made"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/topic_interest -->
+
+    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/topic_interest">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment>A thing of interest to this person.
+
+La proprietà topic_interest collega un agente a una cosa a cui è interessato. A differenza dell&apos;argomento, non è diretta attraverso un documento, ma collega direttamente la cosa.</rdfs:comment>
+        <rdfs:label>topic_interest</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/cerif/frapo/hasCountry -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/cerif/frapo/hasCountry">
+        <rdfs:comment>A data property specifying a country, for example as the location of an event.</rdfs:comment>
+        <rdfs:label>frapo:hasCountry</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/cerif/frapo/hasJobTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/cerif/frapo/hasJobTitle">
+        <rdfs:comment>A data property permitting specification of the job title held by a person, such as might appear next to the name in a directory or on a conference name badge. For example, the person&apos;s specific Job Title might be &apos;Linacre Professor of Zoology&apos; or &apos;Regius Professor of Moral Philosophy&apos;.
+
+This job title properly refers to the role held by that person (e.g. &apos;Head of Department&apos;)</rdfs:comment>
+        <rdfs:label>frapo:hasJobTitle</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/cerif/frapo/hasPhoneNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/cerif/frapo/hasPhoneNumber">
+        <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#recapitoTelefonico"/>
+        <rdfs:comment>A data property identifying a telephone number for an agent.</rdfs:comment>
+        <rdfs:label>frapo:hasPhoneNumber</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#anniCarriera -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#anniCarriera">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#benefits -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#benefits">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#cercaLavoro -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#cercaLavoro">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#competenzeDettagli -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenzeDettagli">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#competenzeRichiesteDettagli -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenzeRichiesteDettagli">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#dataNascita -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#dataNascita">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#descrizione -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#descrizione">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#email -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#email">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#genere -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#genere">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#haOccupatoFunzione -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haOccupatoFunzione">
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>Developer</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>Manager</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>altro</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>assistente</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first>insegnante</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first>operaio</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first>titotale attività</rdf:first>
+                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#indirizzo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#indirizzo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#luogo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#luogo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#nazionalita -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#nazionalita">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#nome -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#nome">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#nomeAzienda -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#nomeAzienda">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#numeroSedi -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#numeroSedi">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#oreDiLavoro -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#oreDiLavoro">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#professione -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#professione">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#recapitoTelefonico -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#recapitoTelefonico">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#salarioMensile -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#salarioMensile">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#viveIn -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#viveIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/firstName -->
+
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/firstName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/gender -->
+
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/gender">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/surname -->
+
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/surname">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/cerif/frapo/Contract -->
+
+    <owl:Class rdf:about="http://purl.org/cerif/frapo/Contract">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Contratto"/>
+        <rdfs:comment>Classe pre la descrizione di un contratto dell&apos;ontologia FRAPO</rdfs:comment>
+        <rdfs:label>frapo:Contract</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl#Agent -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl#Agent">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#AI -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AI">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Informatico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Agricoltura -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Agricoltura">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AgroAlimentare"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#AgroAlimentare -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AgroAlimentare">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
+        <rdfs:comment>Settore Riguardante la filiera Agro Alimentare</rdfs:comment>
+        <rdfs:label>AgroAlimentare</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#AltreCompetenze -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AltreCompetenze">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#AnnucnioProgetto -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AnnucnioProgetto">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#contrattoProposto"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Progetto"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <rdfs:comment>Annuncio in cui viene proprosto un contratto a Progetto</rdfs:comment>
+        <rdfs:label>AnnuncioProgetto</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio">
+        <rdfs:comment>Tale entity descrive un annuncio pubblicato da parte di una Azienda</rdfs:comment>
+        <rdfs:label>Annucio</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#AnnuncioDeterminato -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AnnuncioDeterminato">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#contrattoProposto"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Determinato"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <rdfs:comment>Annuncio in cui viene proprosto un contratto a Tempo Determinato</rdfs:comment>
+        <rdfs:label>AnnuncioDeterminato</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#AnnuncioIndeterminato -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AnnuncioIndeterminato">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#contrattoProposto"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Indeterminato"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <rdfs:label>Annuncio in cui viene proprosto un contratto a tempo Indeterminato</rdfs:label>
+        <rdfs:label>AnnuncioIndeterminato</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#AnnuncioPartTime -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AnnuncioPartTime">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#contrattoProposto"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#PartTime"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <rdfs:comment>Annuncio in cui viene proprosto un contratto Part time</rdfs:comment>
+        <rdfs:label>AnnuncioPartTime</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#AnnuncioTirocinio -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AnnuncioTirocinio">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#contrattoProposto"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Tirocinio"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <rdfs:comment>Annuncio in cui viene proprosto un contratto  a titolo di Tirocinio Aziendale</rdfs:comment>
+        <rdfs:label>AnnuncioTirocinio</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Artistica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Artistica">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#AssistenteDentista -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AssistenteDentista">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Sanitario"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#AssistenteVendite -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AssistenteVendite">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Automobilistico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#AttivitaPrincipali -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AttivitaPrincipali">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#EsperienzeProfessionali"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Automobilistico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Automobilistico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
+        <rdfs:comment>Settore Automobilistico</rdfs:comment>
+        <rdfs:label>Automobilistico</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Automobilistico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda">
+        <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:comment>Azienda è il soggetto giuridico che pubblica un annuncio</rdfs:comment>
+        <rdfs:label>Azienda</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#AziendaInformatica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AziendaInformatica">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAzienda"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Informatico"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:comment>Entity che descrive un azienda che lavora nel settore dell&apos;informatica</rdfs:comment>
+        <rdfs:label>AziendaInformatica</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CEO -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CEO">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CV -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#contiene"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+        <rdfs:label>CV</rdfs:label>
+        <rdfs:label>CV di un candidato</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV">
+        <rdfs:comment>Vengono elecante le macro classi di un CV</rdfs:comment>
+        <rdfs:label>Campi_CV</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato">
+        <owl:equivalentClass rdf:resource="http://www.w3.org/2000/10/swap/pim/contact#Person"/>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#possiede"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:comment>Soggetto alla ricerca di un posto di lavoro</rdfs:comment>
+        <rdfs:label>Candidato</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CandidatoCVImportante -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CandidatoCVImportante">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#lavoraPer"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Multinazionale"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#possiede"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#contiene"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haCampo"/>
+                                                        <owl:someValuesFrom>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole"/>
+                                                                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Manager"/>
+                                                                    </owl:Restriction>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                        </owl:someValuesFrom>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <rdfs:comment>Candidato avente un CV importante dal punto di vista manageriale</rdfs:comment>
+        <rdfs:comment>CandidatoCVImportante</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CandidatoRicercatore -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CandidatoRicercatore">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#possiede"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#contiene"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haCampo"/>
+                                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Dottorato"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CertificatiLingua -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CertificatiLingua">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#IstruzioneEFormazione"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Chimica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Chimica">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#ManifatturieroArtiginato"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Chirurgico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Chirurgico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Sanitario"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Computer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Computer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Contabilita -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Contabilita">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Economico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Contratto -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Contratto">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Accessorio"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Apprendistato"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Chiamata"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Collaborazione"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Determinato"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Indeterminato"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#PartTime"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Progetto"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Tirocinio"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment>Classe enumerata, contente i diversi tipi di contratto proposti in un annuncio o che ha un candidato</rdfs:comment>
+        <rdfs:label>Contratto</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#DeepLearning -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#DeepLearning">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AI"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Dentista -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Dentista">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Sanitario"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#DeveloperBackEnd -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#DeveloperBackEnd">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Informatico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#DeveloperFrontEnd -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#DeveloperFrontEnd">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Informatico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Diploma -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Diploma">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#IstruzioneEFormazione"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Direttore -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Direttore">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#DistribuzioneCommerciale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#DistribuzioneCommerciale">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#ServiziCommerciali"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Dottorato -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Dottorato">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#StudiUniversitari"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Ecommerce -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Ecommerce">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Economico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Economico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Economico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
+        <rdfs:comment>Settore Economico</rdfs:comment>
+        <rdfs:label>Economico</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#EsperienzeProfessionali -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#EsperienzeProfessionali">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Finanza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Finanza">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Economico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#EsperienzeProfessionali"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Gommista -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Gommista">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Automobilistico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Impiegato -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Impiegato">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Informatico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Informatico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
+        <rdfs:comment>Settore Informatico</rdfs:comment>
+        <rdfs:label>Informatico</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#IstruzioneEFormazione -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#IstruzioneEFormazione">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaMagistrale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaMagistrale">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#StudiUniversitari"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaSpecialistica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaSpecialistica">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#StudiUniversitari"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaTriennale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaTriennale">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#StudiUniversitari"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#LegnoArredo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#LegnoArredo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#ManifatturieroArtiginato"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#MachineLearning -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#MachineLearning">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AI"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Management -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Management">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Economico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Manager -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Manager">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#ManifatturieroArtiginato -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#ManifatturieroArtiginato">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
+        <rdfs:comment>Settore Manifatturiero e artigianale</rdfs:comment>
+        <rdfs:label>ManifatturieroArtiginato</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Marketing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Marketing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Economico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#MaterialiDaCostruzione -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#MaterialiDaCostruzione">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#ManifatturieroArtiginato"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#MedioGrande -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#MedioGrande">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#numeroSedi"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</xsd:minExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#numeroSedi"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:comment>Azienda avente un numero di sedi compreso tra 11 e 29</rdfs:comment>
+        <rdfs:label>MedioGrande</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#MedioPiccola -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#MedioPiccola">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#numeroSedi"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:minExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#numeroSedi"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:comment>Azienda avente un numero di sedi compreso tra 2 e 10</rdfs:comment>
+        <rdfs:label>MedioPiccola</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Moda -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Moda">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#ManifatturieroArtiginato"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Multinazionale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Multinazionale">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haSedePrincipaleIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Nazione"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#numeroSedi"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:comment>Azienda avente un numero di sedi maggiore o uguale di 30</rdfs:comment>
+        <rdfs:comment>Multinazionale</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Nazione -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Nazione">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Francia"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Germania"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Italia"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Russia"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Svezia"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#UK"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#USA"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Operaio -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Operaio">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Automobilistico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#OperaioElettrauto -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#OperaioElettrauto">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Operaio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#OperaioMeccanico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#OperaioMeccanico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Operaio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Organizzazione -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Organizzazione">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Ottico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Ottico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Sanitario"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Pesca -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Pesca">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AgroAlimentare"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#ProduzioniAlimentari -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#ProduzioniAlimentari">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AgroAlimentare"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#RetiNeurali -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#RetiNeurali">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AI"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Ricercatore -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Ricercatore">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Sanitario -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Sanitario">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
+        <rdfs:comment>Settore Sanitario</rdfs:comment>
+        <rdfs:label>Sanitario</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#SeriziFinanziariAssicurativi -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#SeriziFinanziariAssicurativi">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#ServiziCommerciali"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#ServiziCommerciali -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#ServiziCommerciali">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
+        <rdfs:comment>Settore Servizi Commerciali</rdfs:comment>
+        <rdfs:label>ServiziCommerciali</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Settore -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore">
+        <rdfs:comment>Settore a cui si riferisce un annuncio o settore di appartenza di una azienda</rdfs:comment>
+        <rdfs:label>Settore</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Sociale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Sociale">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Startup -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Startup">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#numeroSedi"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:comment>Azienda avente una sola sede</rdfs:comment>
+        <rdfs:comment>Startup</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Studente -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Studente">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#StudiUniversitari -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#StudiUniversitari">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#IstruzioneEFormazione"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Tecniche -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Tecniche">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Trasporti -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Trasporti">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#ServiziCommerciali"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#mailbox -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#mailbox">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#phone -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#phone">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2000/10/swap/pim/contact#Person -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2000/10/swap/pim/contact#Person"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Organization -->
+
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Accessorio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Accessorio"/>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Apprendistato -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Apprendistato"/>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CEO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CEO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CEO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
+        <contiene rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Elon_Musk"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Jeff_Bezos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Jeff_Bezos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
+        <contiene rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Jeff_Bezos"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Marco -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Marco">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
+        <contiene rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Marco"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Mark_Zuckemberg -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Mark_Zuckemberg">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
+        <contiene rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_Mark_Zuckemberg"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Vittoria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Vittoria">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
+        <contiene rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Vittoria"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Chiamata -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Chiamata"/>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Collaborazione -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Collaborazione"/>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze_Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze_Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+        <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_organizzazione"/>
+        <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_tecniche"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze_Vittoria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze_Vittoria">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+        <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_AltreCompetenze"/>
+        <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_tecniche"/>
+        <competenzeDettagli rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Biologia, chimica degli alimenti</competenzeDettagli>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Determinato -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Determinato"/>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Elon_Musk"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Francia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Francia"/>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Germania -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Germania"/>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Indeterminato -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Indeterminato"/>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali_Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali_Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+        <foaf:haPersonalmailbox rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Elon_Musk"/>
+        <foaf:haPhone rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Elon_Musk"/>
+        <anniCarriera rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</anniCarriera>
+        <dataNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1986-07-19</dataNascita>
+        <nazionalita rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USA</nazionalita>
+        <professione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inventore</professione>
+        <viveIn>Roma</viveIn>
+        <foaf:firstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Elon</foaf:firstName>
+        <foaf:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">maschio</foaf:gender>
+        <foaf:surname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Musk</foaf:surname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Italia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Italia"/>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Jeff_Bezos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Jeff_Bezos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <lavoraPer rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Amazon"/>
+        <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Jeff_Bezos"/>
+        <cercaLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cercaLavoro>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Marco -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Marco">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <haContratto rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Progetto"/>
+        <lavoraPer rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_InfoTech"/>
+        <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Marco"/>
+        <salarioMensile rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1400.0</salarioMensile>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Mark_Zuckemberg -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Mark_Zuckemberg">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Mark_Zuckemberg"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#PartTime -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#PartTime"/>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Phone_Jeff_Bezos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Phone_Jeff_Bezos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone"/>
+        <recapitoTelefonico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">345565768</recapitoTelefonico>
+        <schema:image rdf:resource="https://www.milanofinanza.it/remote/static.milanofinanza.it/content_upload/img/2020/03/202003182050118868/bezos-498340.jpg?w=403&amp;h=211&amp;mode=crop&amp;format=jpg&amp;quality=65"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Progetto -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Progetto"/>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Russia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Russia"/>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Svezia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Svezia"/>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Tirocinio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Tirocinio"/>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#UK -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#UK"/>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#USA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#USA"/>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Vittoria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Vittoria">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Vittoria"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#annuncio_Amazon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#annuncio_Amazon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <contrattoProposto rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Indeterminato"/>
+        <ePubblicato rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Amazon"/>
+        <haCompetenzeRichieste rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_AltreCompetenze"/>
+        <frapo:hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Torino</frapo:hasCountry>
+        <competenzeRichiesteDettagli rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Magazziniere Avanzato</competenzeRichiesteDettagli>
+        <descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Si ricerca un magazzienre svelto e audace</descrizione>
+        <oreDiLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</oreDiLavoro>
+        <salarioMensile rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2900.0</salarioMensile>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#annuncio_Apple -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#annuncio_Apple">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <contrattoProposto rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Determinato"/>
+        <ePubblicato rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Apple"/>
+        <haCompetenzeRichieste rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_AltreCompetenze"/>
+        <haCompetenzeRichieste rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Computer"/>
+        <haCompetenzeRichieste rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_organizzazione"/>
+        <frapo:hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Milano</frapo:hasCountry>
+        <benefits>Asilo nido, corso di yoga</benefits>
+        <competenzeRichiesteDettagli>sviluppatore app IOS, Swift</competenzeRichiesteDettagli>
+        <descrizione>Si cerca uno sviluppatore per la creazione di applicazioni IOS</descrizione>
+        <oreDiLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</oreDiLavoro>
+        <salarioMensile rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1800.0</salarioMensile>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#annuncio_Orogel -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#annuncio_Orogel">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <contrattoProposto rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Tirocinio"/>
+        <ePubblicato rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Orogel"/>
+        <haCompetenzeRichieste rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_tecniche"/>
+        <frapo:hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Potenza</frapo:hasCountry>
+        <competenzeRichiesteDettagli rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Analista chimico, C2 inglese</competenzeRichiesteDettagli>
+        <descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">analisi tecniche dei componenti nutrizionali</descrizione>
+        <oreDiLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</oreDiLavoro>
+        <salarioMensile rdf:datatype="http://www.w3.org/2001/XMLSchema#float">500.0</salarioMensile>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#annuncio_Tesla -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#annuncio_Tesla">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <contrattoProposto rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Determinato"/>
+        <ePubblicato rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Tesla"/>
+        <haCompetenzeRichieste rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_tecniche"/>
+        <frapo:hasCountry>Roma</frapo:hasCountry>
+        <descrizione>Si propone un lavoro a tempo determinato per la relaizzazione di una nuova vettura della casa automobilistica Tesla</descrizione>
+        <oreDiLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</oreDiLavoro>
+        <salarioMensile rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2100.0</salarioMensile>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#artificial_intelligence -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#artificial_intelligence">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AI"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AttivitaPrincipali"/>
+        <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Invetore del primo modello di tesla e finanziatore di quest&apos;ultima.</nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Jeff_Bezos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Jeff_Bezos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AttivitaPrincipali"/>
+        <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Management dell&apos;azienda, gestione finanze, gestione rierca e sviluppo</nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Marco -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Marco">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AttivitaPrincipali"/>
+        <nome>sviluppo interfacce web, collaborazione con Pinco Pallino SRL</nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Mark_Zuckemberg -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Mark_Zuckemberg">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AttivitaPrincipali"/>
+        <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gestione delle finanze e contabile</nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Vittoria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Vittoria">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AttivitaPrincipali"/>
+        <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Analisi componenti nutritivi</nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Amazon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Amazon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <haSedePrincipaleIn rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Germania"/>
+        <haSedePrincipaleIn rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Italia"/>
+        <haSedePrincipaleIn rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#USA"/>
+        <haSettoreAzienda rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_eCommerce"/>
+        <numeroSedi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</numeroSedi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Apple -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Apple">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <haSedePrincipaleIn rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#USA"/>
+        <haSettoreAzienda rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_informatica"/>
+        <numeroSedi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</numeroSedi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_InfoTech -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_InfoTech">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <haSettoreAzienda rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_informatica"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Orogel -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Orogel">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <haSedePrincipaleIn rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Italia"/>
+        <haSettoreAzienda rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_ProduzioneAlimentare"/>
+        <numeroSedi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</numeroSedi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_OttoVolante -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_OttoVolante">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <numeroSedi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</numeroSedi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Tesla -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Tesla">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <haSedePrincipaleIn rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Italia"/>
+        <haSettoreAzienda rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze_Elon_Musk"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali_Elon_Musk"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Elon_Musk"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#dottorato_Elon_Musk"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Elon_Musk"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Jeff_Bezos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Jeff_Bezos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Jeff_Bezos"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#certificatiLingua_Jeff_Bezos"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenze_Jeff_Bezos"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#dottorato_Jeff_Bezos"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Jeff_Bezos"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Jeff_Bezos"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_specialistica_Jeff_Bezos"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Marco -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Marco">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Marco"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#certificatiLingua_Marco"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenze_Marco"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Marco"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Marco"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_specialistica_Marco"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_triennale_Marco"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Vittoria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Vittoria">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze_Vittoria"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Vittoria"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#certificatiLingua_Vittoria"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Vittoria"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Vittoria"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_triennale_Vittoria"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#campi_Mark_Zuckemberg -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_Mark_Zuckemberg">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Mark_Zuckemberg"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenze_Mark_Zuckemberg"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Mark_Zuckemberg"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Mark_Zuckemberg"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_magistrale_Mark_Zuckemberg"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#certificatiLingua_Jeff_Bezos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#certificatiLingua_Jeff_Bezos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CertificatiLingua"/>
+        <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C2 inglese</nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#certificatiLingua_Marco -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#certificatiLingua_Marco">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CertificatiLingua"/>
+        <nome>C1 inglese, A2 francese</nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#certificatiLingua_Vittoria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#certificatiLingua_Vittoria">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CertificatiLingua"/>
+        <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C2 inglese, B2 francese, B2 spagnolo, A2 russo</nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_AltreCompetenze -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_AltreCompetenze">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AltreCompetenze"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Artistica -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Artistica">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Artistica"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Computer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Computer">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Computer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Sociale -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Sociale">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Sociale"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_organizzazione -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_organizzazione">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Organizzazione"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_tecniche -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_tecniche">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Tecniche"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#competenze_Jeff_Bezos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenze_Jeff_Bezos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+        <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_organizzazione"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#competenze_Marco -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenze_Marco">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+        <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Computer"/>
+        <competenzeDettagli>Swift, Flutter, Android, Java, C++</competenzeDettagli>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#competenze_Mark_Zuckemberg -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenze_Mark_Zuckemberg">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+        <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Computer"/>
+        <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_organizzazione"/>
+        <competenzeDettagli rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Excel, Java</competenzeDettagli>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#distribuzioneCommerciale -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#distribuzioneCommerciale">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#DistribuzioneCommerciale"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#dottorato_Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#dottorato_Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Dottorato"/>
+        <haSettoreStudi rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive"/>
+        <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Auto a guida autonoma per uso urbano</nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#dottorato_Jeff_Bezos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#dottorato_Jeff_Bezos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Dottorato"/>
+        <haSettoreStudi rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#retiNeurali"/>
+        <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ecommerce avanzato con utilizzo di AI</nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#email_Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#mailbox"/>
+        <email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">elonMusk90@gmail.com</email>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#email_Jeff_Bezos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Jeff_Bezos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#mailbox"/>
+        <email>jeffBezos@emazon.com</email>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#email_Marco -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Marco">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#mailbox"/>
+        <email>marco56@gmail.com</email>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#email_Mark_Zuckemberg -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Mark_Zuckemberg">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#mailbox"/>
+        <email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">markFacebook345@gmail.com</email>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#email_Vittoria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Vittoria">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#mailbox"/>
+        <email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">vittoria.gibaudo@unict.ersu.it</email>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#finanza -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#finanza">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Finanza"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#foto_Marco -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#foto_Marco">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
+        <schema:image rdf:resource="https://www.nanopress.it/wp-content/uploads/sites/17/2018/02/Immagini-profilo-Facebook.jpg"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#foto_Mark_Zuckemberg -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#foto_Mark_Zuckemberg">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
+        <schema:image rdf:resource="https://www.nanopress.it/wp-content/uploads/sites/17/2018/02/Immagini-profilo-Facebook.jpg"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#foto_Vittoria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#foto_Vittoria">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
+        <schema:image rdf:resource="https://www.nanopress.it/wp-content/uploads/sites/17/2018/02/Immagini-profilo-Facebook.jpg"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#foto_jeff_Bezos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#foto_jeff_Bezos">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
+        <schema:image rdf:resource="https://www.nanopress.it/wp-content/uploads/sites/17/2018/02/Immagini-profilo-Facebook.jpg"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
+        <objectrole:hasRole rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CEO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Jeff_Bezos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Jeff_Bezos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
+        <objectrole:hasRole rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#manager"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Marco -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Marco">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
+        <objectrole:hasRole rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#impiegato"/>
+        <nome>Developer</nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Mark_Zuckemberg -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Mark_Zuckemberg">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
+        <objectrole:hasRole rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#manager"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Vittoria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Vittoria">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
+        <objectrole:hasRole rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#studente"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#impiegato -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#impiegato">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Impiegato"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Jeff_Bezos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Jeff_Bezos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+        <foaf:haPersonalmailbox rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Jeff_Bezos"/>
+        <foaf:haPhone rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Phone_Jeff_Bezos"/>
+        <foaf:img rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#foto_jeff_Bezos"/>
+        <anniCarriera rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</anniCarriera>
+        <dataNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1964-01-12</dataNascita>
+        <nazionalita rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USA</nazionalita>
+        <professione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Direttore</professione>
+        <viveIn>New York</viveIn>
+        <foaf:firstName>Jeff</foaf:firstName>
+        <foaf:gender>Maschio</foaf:gender>
+        <foaf:surname>Bezos</foaf:surname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Marco -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Marco">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+        <foaf:haPersonalmailbox rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Marco"/>
+        <foaf:haPhone rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Marco"/>
+        <foaf:img rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#foto_Marco"/>
+        <anniCarriera rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</anniCarriera>
+        <dataNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1993-09-11</dataNascita>
+        <genere>maschio</genere>
+        <nazionalita>Italiana</nazionalita>
+        <nome>Marco Dionisio</nome>
+        <professione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">impiegato</professione>
+        <viveIn>Catania</viveIn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Mark_Zuckemberg -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Mark_Zuckemberg">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+        <foaf:haPersonalmailbox rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Mark_Zuckemberg"/>
+        <foaf:haPhone rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Mark_Zuckemberg"/>
+        <foaf:img rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#foto_Mark_Zuckemberg"/>
+        <anniCarriera rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</anniCarriera>
+        <dataNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1984-05-14</dataNascita>
+        <nazionalita rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USA</nazionalita>
+        <professione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disoccupato</professione>
+        <viveIn>Manhattan</viveIn>
+        <foaf:firstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mark</foaf:firstName>
+        <foaf:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Maschio</foaf:gender>
+        <foaf:surname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zuckemberg</foaf:surname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Vittoria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Vittoria">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+        <foaf:haPersonalmailbox rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Vittoria"/>
+        <foaf:haPhone rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Vittoria"/>
+        <foaf:img rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#foto_Vittoria"/>
+        <anniCarriera rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</anniCarriera>
+        <dataNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1997-04-24</dataNascita>
+        <nazionalita rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inglese</nazionalita>
+        <professione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">studente</professione>
+        <viveIn>Parigi</viveIn>
+        <foaf:firstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vittoria</foaf:firstName>
+        <foaf:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Femmina</foaf:gender>
+        <foaf:surname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gibaudo</foaf:surname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_magistrale_Mark_Zuckemberg -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_magistrale_Mark_Zuckemberg">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaMagistrale"/>
+        <haSettoreStudi rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#artificial_intelligence"/>
+        <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">intelligenza artificiale e sistemi informatici</nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_specialistica_Jeff_Bezos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_specialistica_Jeff_Bezos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaSpecialistica"/>
+        <haSettoreStudi rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#finanza"/>
+        <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Laurea specialistica in Economia e Management</nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_specialistica_Marco -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_specialistica_Marco">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaSpecialistica"/>
+        <haSettoreStudi rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#artificial_intelligence"/>
+        <nome>Laurea Artificial Intelligence</nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_triennale_Marco -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_triennale_Marco">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaTriennale"/>
+        <haSettoreStudi rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_informatica"/>
+        <nome>Laurea In scienze informatiche</nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_triennale_Vittoria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_triennale_Vittoria">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaTriennale"/>
+        <haSettoreStudi rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_Chimica"/>
+        <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Laurea in Scienze e tecnologie Alimentari</nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#manager -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#manager">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Manager"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Elon_Musk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Elon_Musk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone"/>
+        <recapitoTelefonico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3556463435</recapitoTelefonico>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Marco -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Marco">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone"/>
+        <recapitoTelefonico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4534325242</recapitoTelefonico>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Mark_Zuckemberg -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Mark_Zuckemberg">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone"/>
+        <recapitoTelefonico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">23434644645</recapitoTelefonico>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Vittoria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Vittoria">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone"/>
+        <recapitoTelefonico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3345454644</recapitoTelefonico>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#retiNeurali -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#retiNeurali">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#RetiNeurali"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#settore_Chimica -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_Chimica">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Chimica"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#settore_ProduzioneAlimentare -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_ProduzioneAlimentare">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#ProduzioniAlimentari"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#settore_eCommerce -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_eCommerce">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Ecommerce"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#settore_informatica -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_informatica">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Informatico"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#studente -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#studente">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Studente"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AgroAlimentare"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Automobilistico"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Economico"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Informatico"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#ManifatturieroArtiginato"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Sanitario"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#ServiziCommerciali"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#EsperienzeProfessionali"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#IstruzioneEFormazione"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#MedioGrande"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#MedioPiccola"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Multinazionale"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Startup"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Accessorio"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Apprendistato"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Chiamata"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Collaborazione"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Determinato"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Indeterminato"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#PartTime"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Progetto"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Tirocinio"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Francia"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Germania"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Italia"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Russia"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Svezia"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#UK"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#USA"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Jeff_Bezos"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Marco"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Mark_Zuckemberg"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
