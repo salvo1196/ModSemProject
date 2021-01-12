@@ -3,7 +3,7 @@
      xml:base="http://www.semanticweb.org/OntologiaRicercaLavoro"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
-     xmlns:p0="http://www.semanticweb.org/OntologiaRicercaLavoro#"
+     xmlns:jso="http://www.semanticweb.org/OntologiaRicercaLavoro#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:wot="http://xmlns.com/wot/0.1/"
