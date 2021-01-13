@@ -1,3 +1,4 @@
+package com.ontotext.graphdb.example.app.hello;
 import com.ontotext.graphdb.example.util.EmbeddedGraphDB;
 import org.openrdf.model.Value;
 import org.openrdf.query.*;

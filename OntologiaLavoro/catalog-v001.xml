@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1610469396151" name="duplicate:http://www.semanticweb.org/OntologiaRicercaLavoro" uri="Ontologia_del_lavoro.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1610469396151" name="duplicate:http://www.semanticweb.org/OntologiaRicercaLavoro" uri="Ontologia_del_lavoro_v_2.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1610469396151" name="duplicate:http://www.semanticweb.org/OntologiaRicercaLavoro" uri="Ontologia_del_lavoro_v_2.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1610469396151" name="http://www.semanticweb.org/salvo/ontologies/2021/0/JobSearch3" uri="JobSearch3.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1610469396151" name="http://xmlns.com/foaf/0.1/" uri="foafIndex.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610532604034" name="duplicate:http://www.semanticweb.org/OntologiaRicercaLavoro" uri="Ontologia_del_lavoro.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1610532604034" name="duplicate:http://www.semanticweb.org/OntologiaRicercaLavoro" uri="Ontologia_del_lavoro_v_2.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1610532604034" name="duplicate:http://www.semanticweb.org/OntologiaRicercaLavoro" uri="Ontologia_del_lavoro_v_2.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1610532604034" name="http://www.semanticweb.org/salvo/ontologies/2021/0/JobSearch3" uri="JobSearch3.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1610532604034" name="http://xmlns.com/foaf/0.1/" uri="foafIndex.rdf"/>
     </group>
 </catalog>

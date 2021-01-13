@@ -11,8 +11,11 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:frapo="http://purl.org/cerif/frapo/"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
      xmlns:schema="http://www.semanticweb.org/OntologiaRicercaLavoro#schema:"
      xmlns:objectrole="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#"
      xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
@@ -68,6 +71,12 @@
     <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
     
 
 
@@ -190,6 +199,16 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haRuolo"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
         <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#gestisce -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#gestisce">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#èGestitaDa"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
     </owl:ObjectProperty>
     
 
@@ -360,6 +379,15 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#èContenutoIn">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#èGestitaDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#èGestitaDa">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
     </owl:ObjectProperty>
     
 
@@ -784,6 +812,14 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#AnnuncioCondizioniVantaggiose -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AnnuncioCondizioniVantaggiose">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#AnnuncioDeterminato -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AnnuncioDeterminato">
@@ -905,6 +941,14 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <rdfs:comment>Azienda è il soggetto giuridico che pubblica un annuncio</rdfs:comment>
         <rdfs:label>Azienda</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#AziendaAutomotive -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AziendaAutomotive">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
     </owl:Class>
     
 
@@ -1058,6 +1102,14 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
                 </owl:someValuesFrom>
             </owl:Restriction>
         </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CandidatoSecondoLavoro -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CandidatoSecondoLavoro">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
     </owl:Class>
     
@@ -1462,13 +1514,6 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Multinazionale">
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haSedePrincipaleIn"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Nazione"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#numeroSedi"/>
                 <owl:someValuesFrom>
                     <rdfs:Datatype>
@@ -1829,6 +1874,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Elon_Musk">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <lavoraPer rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Tesla"/>
         <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Elon_Musk"/>
     </owl:NamedIndividual>
     
@@ -2769,6 +2815,16 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
         <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Elon_Musk"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Jeff_Bezos"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Marco"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Mark_Zuckemberg"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Vittoria"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Francia"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Germania"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Italia"/>
@@ -2778,13 +2834,420 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#USA"/>
         </owl:distinctMembers>
     </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#a">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#sa">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#x">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#n1">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#n2">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#cv">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#campi">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#ceo">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#contratto">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#salario">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
     <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
-        <owl:distinctMembers rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Jeff_Bezos"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Marco"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Mark_Zuckemberg"/>
-        </owl:distinctMembers>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Se l&apos;azienda ha settore Automotive allora inferisce che l&apos;azienda è un AziendaAutomotive</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S1_AziendaAutomotive</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#a"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#sa"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAzienda"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#a"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#sa"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AziendaAutomotive"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#a"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Se la dataProperty CercaLavoro è true allaora è un candidato in cerca di un secondo lavoro</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S5_CandidatoSecondoLavoro</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#cercaLavoro"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
+                                <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrl:argument2>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#lavoraPer"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CandidatoSecondoLavoro"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Identifica un&apos;azienda come multinazionale se ha sedi in almeno due nazioni diverse</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S3_aziendaMultinazionaleSedi</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haSedePrincipaleIn"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#n1"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haSedePrincipaleIn"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#n2"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#notEqual"/>
+                                                <swrl:arguments rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#n1"/>
+                                                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#n2"/>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Multinazionale"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ndividua se ci sono candidati che gestiscono un azienda (sono CEO dell&apos;azienda in cui lavorano)</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S4 gestisceAzienda</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#possiede"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#cv"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#contiene"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#cv"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#campi"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haCampo"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#campi"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#ceo"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CEO"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#ceo"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#lavoraPer"/>
+                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
+                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#gestisce"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Individua se un annuncio ha delle condizioni di lavoro vantaggiose</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S2_AnnuncioCondizioniVantaggiose</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#contrattoProposto"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#contratto"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#salarioMensile"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#salario"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                        <swrl:arguments>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#salario"/>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2000</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </swrl:arguments>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AnnuncioCondizioniVantaggiose"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
 </rdf:RDF>
 
