@@ -162,6 +162,15 @@
     
 
 
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#annuncioConsigliato -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#annuncioConsigliato">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#contiene -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#contiene">
@@ -807,7 +816,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio">
         <rdfs:comment>Tale entity descrive un annuncio pubblicato da parte di una Azienda</rdfs:comment>
-        <rdfs:label>Annucio</rdfs:label>
+        <rdfs:label>Annuncio</rdfs:label>
     </owl:Class>
     
 
@@ -1514,6 +1523,13 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Multinazionale">
         <owl:equivalentClass>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haSedePrincipaleIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Nazione"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#numeroSedi"/>
                 <owl:someValuesFrom>
                     <rdfs:Datatype>
@@ -1813,11 +1829,11 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
-    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Mark_Zuckemberg -->
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Mark_Zuckerberg -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Mark_Zuckemberg">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Mark_Zuckerberg">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
-        <contiene rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_Mark_Zuckemberg"/>
+        <contiene rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_Mark_Zuckerberg"/>
     </owl:NamedIndividual>
     
 
@@ -1945,11 +1961,11 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
-    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Mark_Zuckemberg -->
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Mark_Zuckerberg -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Mark_Zuckemberg">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Mark_Zuckerberg">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
-        <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Mark_Zuckemberg"/>
+        <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Mark_Zuckerberg"/>
     </owl:NamedIndividual>
     
 
@@ -2116,9 +2132,9 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
-    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Mark_Zuckemberg -->
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Mark_Zuckerberg -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Mark_Zuckemberg">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Mark_Zuckerberg">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AttivitaPrincipali"/>
         <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gestione delle finanze e contabile</nome>
     </owl:NamedIndividual>
@@ -2254,15 +2270,15 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
-    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#campi_Mark_Zuckemberg -->
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#campi_Mark_Zuckerberg -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_Mark_Zuckemberg">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_Mark_Zuckerberg">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
-        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Mark_Zuckemberg"/>
-        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenze_Mark_Zuckemberg"/>
-        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Mark_Zuckemberg"/>
-        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Mark_Zuckemberg"/>
-        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_magistrale_Mark_Zuckemberg"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Mark_Zuckerberg"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenze_Mark_Zuckerberg"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Mark_Zuckerberg"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Mark_Zuckerberg"/>
+        <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_magistrale_Mark_Zuckerberg"/>
     </owl:NamedIndividual>
     
 
@@ -2361,9 +2377,9 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
-    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#competenze_Mark_Zuckemberg -->
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#competenze_Mark_Zuckerberg -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenze_Mark_Zuckemberg">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenze_Mark_Zuckerberg">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
         <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Computer"/>
         <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_organizzazione"/>
@@ -2427,9 +2443,9 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
-    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#email_Mark_Zuckemberg -->
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#email_Mark_Zuckerberg -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Mark_Zuckemberg">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Mark_Zuckerberg">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#mailbox"/>
         <email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">markFacebook345@gmail.com</email>
     </owl:NamedIndividual>
@@ -2462,9 +2478,9 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
-    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#foto_Mark_Zuckemberg -->
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#foto_Mark_Zuckerberg -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#foto_Mark_Zuckemberg">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#foto_Mark_Zuckerberg">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
         <schema:image rdf:resource="https://www.nanopress.it/wp-content/uploads/sites/17/2018/02/Immagini-profilo-Facebook.jpg"/>
     </owl:NamedIndividual>
@@ -2517,9 +2533,9 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
-    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Mark_Zuckemberg -->
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Mark_Zuckerberg -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Mark_Zuckemberg">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Mark_Zuckerberg">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
         <objectrole:hasRole rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#manager"/>
     </owl:NamedIndividual>
@@ -2580,13 +2596,13 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
-    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Mark_Zuckemberg -->
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Mark_Zuckerberg -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Mark_Zuckemberg">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Mark_Zuckerberg">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
-        <foaf:haPersonalmailbox rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Mark_Zuckemberg"/>
-        <foaf:haPhone rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Mark_Zuckemberg"/>
-        <foaf:img rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#foto_Mark_Zuckemberg"/>
+        <foaf:haPersonalmailbox rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Mark_Zuckerberg"/>
+        <foaf:haPhone rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Mark_Zuckerberg"/>
+        <foaf:img rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#foto_Mark_Zuckerberg"/>
         <anniCarriera rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</anniCarriera>
         <dataNascita rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1984-05-14</dataNascita>
         <nazionalita rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USA</nazionalita>
@@ -2618,9 +2634,9 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
-    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_magistrale_Mark_Zuckemberg -->
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_magistrale_Mark_Zuckerberg -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_magistrale_Mark_Zuckemberg">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_magistrale_Mark_Zuckerberg">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaMagistrale"/>
         <haSettoreStudi rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#artificial_intelligence"/>
         <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">intelligenza artificiale e sistemi informatici</nome>
@@ -2694,9 +2710,9 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
-    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Mark_Zuckemberg -->
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Mark_Zuckerberg -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Mark_Zuckemberg">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Mark_Zuckerberg">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone"/>
         <recapitoTelefonico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">23434644645</recapitoTelefonico>
     </owl:NamedIndividual>
@@ -2818,7 +2834,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Elon_Musk"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Jeff_Bezos"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Marco"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Mark_Zuckemberg"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Mark_Zuckerberg"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Vittoria"/>
         </owl:distinctMembers>
     </rdf:Description>
@@ -2857,12 +2873,6 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
-    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#n1">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#n2">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
     <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#cv">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
@@ -2879,6 +2889,15 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#salario">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#annuncio">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#settore">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#candidato">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
     <rdf:Description>
@@ -3010,81 +3029,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     </rdf:Description>
     <rdf:Description>
         <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Identifica un&apos;azienda come multinazionale se ha sedi in almeno due nazioni diverse</rdfs:comment>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S3_aziendaMultinazionaleSedi</rdfs:label>
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
-                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
-                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
-                    </rdf:Description>
-                </rdf:first>
-                <rdf:rest>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                        <rdf:first>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haSedePrincipaleIn"/>
-                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
-                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#n1"/>
-                            </rdf:Description>
-                        </rdf:first>
-                        <rdf:rest>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                                <rdf:first>
-                                    <rdf:Description>
-                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haSedePrincipaleIn"/>
-                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
-                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#n2"/>
-                                    </rdf:Description>
-                                </rdf:first>
-                                <rdf:rest>
-                                    <rdf:Description>
-                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                                        <rdf:first>
-                                            <rdf:Description>
-                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
-                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#notEqual"/>
-                                                <swrl:arguments rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#n1"/>
-                                                    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#n2"/>
-                                                </swrl:arguments>
-                                            </rdf:Description>
-                                        </rdf:first>
-                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                                    </rdf:Description>
-                                </rdf:rest>
-                            </rdf:Description>
-                        </rdf:rest>
-                    </rdf:Description>
-                </rdf:rest>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
-                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Multinazionale"/>
-                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
-                    </rdf:Description>
-                </rdf:first>
-                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ndividua se ci sono candidati che gestiscono un azienda (sono CEO dell&apos;azienda in cui lavorano)</rdfs:comment>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S4 gestisceAzienda</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S4_gestisceAzienda</rdfs:label>
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
         <swrl:body>
             <rdf:Description>
@@ -3243,6 +3189,66 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                         <swrl:classPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AnnuncioCondizioniVantaggiose"/>
                         <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Segnala gli annunci che hanno lo stesso settore di interesse del candidato</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S3_annuncioConsigliato</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#pubblica"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#annuncio"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAnnuncio"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#annuncio"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreDiInteresse"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#candidato"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#annuncioConsigliato"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#candidato"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
