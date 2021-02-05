@@ -93,8 +93,12 @@
         $sector= isset($_POST['settore']) ? $_POST['settore'] : false;
         $university= isset($_POST['studiUniversitari']) ? $_POST['studiUniversitari'] : false;
         $certificate= isset($_POST['certificati']) ? $_POST['certificati'] : false;
+        $selected_radio = $_POST['nome'];
 
-        if ($sector && $university && $certificate) {
+
+
+
+        if ($sector && $university && $certificate && $selected_radio) {
             $settore_v = htmlentities($_POST['settore'], ENT_QUOTES, "UTF-8");
             $university_v = htmlentities($_POST['studiUniversitari'], ENT_QUOTES, "UTF-8");
             $certificate_v = htmlentities($_POST['certificati'], ENT_QUOTES, "UTF-8");
@@ -108,7 +112,9 @@
 
         <label >Settore:</label> <?php echo $settore_v?>
         <br>
-        <label>Studi universitari:</label> <?php echo $university_v?>
+        <label> Mostrare nome del settore: </label> <?php echo $selected_radio ?>
+        <br>
+        <label>Studi universitari:</label> <?php echo $university?>
         <br>
         <label>Certificati Linguistici:</label> <?php echo $certificate_v?>
 
@@ -136,62 +142,96 @@
         }
 
 
+        switch ($university) {
+            case 'triennale':
+                $livelloStudi = 'LaureaTriennale'; //valore utilizzato  nella query
+                $livelloStudi_h = 'Laurea Triennale'; //header tabella
+                break;
+
+            case 'magistrale':
+                $livelloStudi = 'LaureaMagistrale';
+                $livelloStudi_h = 'Laurea Magistrale';
+                break;
+            case 'specialistica':
+                $livelloStudi = 'LaureaSpecialistica';
+                $livelloStudi_h = 'Laurea Specialistica';
+                break;
+            case 'dottorato':
+                $livelloStudi = 'Dottorato';
+                $livelloStudi_h = 'Dottorato';
+
+            default :
+                $livelloStudi ='-';
+                $livelloStudi_h = '-';;
+        }
 
 
-
-
-        $query1 = '
+        $query1 = "
           PREFIX : <http://www.semanticweb.org/OntologiaRicercaLavoro#>
           PREFIX foaf: <http://xmlns.com/foaf/0.1/>
           PREFIX frapo: <http://purl.org/cerif/frapo/>
         
-          SELECT ?candidato ?ls
+          SELECT ?candidato ?ls ?nomeTitoloDiStudi
           WHERE {
             ?candidato :possiede ?cv.
             ?cv :contiene ?campi_cv.
             ?campi_cv :haCampo ?ls.
+            ?ls :nome ?nomeTitoloDiStudi.
+            
             ?cv rdf:type :CV.
             ?campi_cv rdf:type :Campi_CV.
-            ?ls rdf:type :LaureaSpecialistica.
+            ?ls rdf:type :$livelloStudi.
             
           }
         
-          ';
+          ";
 
 
-        $query2= '
+        $query2= "
         PREFIX : <http://www.semanticweb.org/OntologiaRicercaLavoro#>
         PREFIX foaf: <http://xmlns.com/foaf/0.1/>
         PREFIX frapo: <http://purl.org/cerif/frapo/>
         
-        
-        SELECT DISTINCT ?annuncio ?candidato 
-        WHERE{
-            ?candidato :possiede ?cv.
+         SELECT  distinct ?candidato  ?tipoCertificato
+         WHERE {
+                ?candidato :possiede ?cv.
                 ?cv :contiene ?campi_cv.
-                 ?campi_cv :haCampo ?infoPersonali;
-                            :haCampo?competenze.
-                  ?competenze :haCompetenze ?competenzeCandidato.
-                  ?infoPersonali :viveIn ?viveIn.   
-                          
-            ?annuncio :haCompetenzeRichieste ?competenzeRichieste;
-                frapo:hasCountry ?countyAnnuncio.
-        
-            
-            FILTER(?competenzeRichieste = ?competenzeCandidato)
-            FILTER(?viveIn = ?countyAnnuncio)
-        
+                ?campi_cv :haCampo ?studiUniversitari;
+                       :haCampo ?certificatoLingua.
+                ?certificatoLingua :nome ?tipoCertificato.
+                       
+               FILTER regex(str(?tipoCertificato), '$certificate_v').
                 
-            ?annuncio rdf:type :Annuncio.
-            ?cv rdf:type :CV.
-            ?campi_cv rdf:type :Campi_CV.
-                          ?infoPersonali rdf:type :InfoPersonali.
-                          ?competenze rdf:type :Competenze.
-                          ?competenzeRichieste rdf:type :Competenze
+                
+                ?cv rdf:type :CV.
+                ?campi_cv rdf:type :Campi_CV.
+                ?studiUniversitari rdf:type :StudiUniversitari.
+                ?certificatoLingua rdf:type :CertificatiLingua.
+               
+            }
+          ORDER BY DESC(?tipoCertificato)
+        ";
 
-           }
-        ';
+        $query3= "
+        PREFIX : <http://www.semanticweb.org/OntologiaRicercaLavoro#>
+        PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+        PREFIX frapo: <http://purl.org/cerif/frapo/>
+        
+         SELECT distinct ?candidato  ?settoreStudi ?studiUniversitari ?nomeTitoloDiStudi
+            WHERE {
+                ?candidato :possiede ?cv.
+                ?cv :contiene ?campi_cv.
+                ?campi_cv :haCampo ?studiUniversitari.
+                ?studiUniversitari :nome ?nomeTitoloDiStudi;
+                                   :haSettoreStudi ?settoreStudi.
+                ?settoreStudi rdf:type :Informatico.
+                ?cv rdf:type :CV.
+                ?campi_cv rdf:type :Campi_CV.
+                ?studiUniversitari rdf:type :StudiUniversitari.   
+            }
+           ORDER BY ?Candidato
 
+        ";
 
 
         ////////////////////////////////
@@ -199,12 +239,78 @@
         $university= isset($_POST['studiUniversitari']) ? $_POST['studiUniversitari'] : false;
         $certificate= isset($_POST['certificati']) ? $_POST['certificati'] : false;
 
-        if ((strcmp($sector, "informatica") == 0) &&  (strcmp($university, "triennale")==0))  {
+        ////////////////////// QUERY 1: Basta selezionare Studi universitari //////////////////////////
+        if ((strcmp($university, $university_v)==0) && (strcmp($selected_radio, "no")==0) && (strcmp($certificate, "-")==0) && (strcmp($sector, "-")==0))  {
+
             $rows = $store->query($query1, 'rows');
+
+
+            /* display the results in an HTML table */
+            echo "<table border='1'  class=\"table table-small-font table-sm table-bordered table-striped\" >
+                  <thead>
+                      <th>Candidato</th>
+                      <th>$livelloStudi_h</th>
+                      <th> Corso di Studi </th>
+                  </thead>";
+
+
+            /* loop for each returned row */
+            foreach( $rows as $row ) {
+                /*Stampo le sottostinge dell'URI contente solo i nomi*/
+                print "<tr><td>" .substr($row['candidato'], strpos($row['candidato'], "#") + 1)."</td> 
+                             <td>" .substr($row['ls'], strpos($row['ls'], "#") + 1). "</td>
+                             <td> ".$row['nomeTitoloDiStudi']." </td>
+                             </tr>";
+                 }
+             echo "</table>";
+
+
         }
-        else if((strcmp($sector, "automobilismo") == 0) &&  (strcmp($university, "magistrale")==0)){
-            $rows = $store->query($query2, 'rows');
+        //else if((strcmp($sector, "informatica") == 0) &&  (strcmp($university, "qualsiasi")==0) && (strcmp($selected_radio, "si")==0) ){
+        ////////////////////// QUERY 2: Basta selezionare il certificato //////////////////////////
+        else if((strcmp($certificate, $certificate_v) == 0) && (strcmp($university, "-")==0) && (strcmp($selected_radio, "no")==0)  && (strcmp($sector, "-")==0) ){
+            $rows2 = $store->query($query2, 'rows');
+            echo "<table border='1'  class=\"table table-small-font table-sm table-bordered table-striped\" >
+                  <thead>
+                      <th>Candidato</th>
+                      <th>Certificato linguistico</th>
+                 </thead>";
+
+
+            /* loop for each returned row */
+            foreach( $rows2 as $row ) {
+                /*Stampo le sottostinge dell'URI contente solo i nomi*/
+                print "<tr><td>" .substr($row['candidato'], strpos($row['candidato'], "#") + 1)."</td>
+                             <td>" .$row['tipoCertificato']."</td>
+                            </tr>";
+            }
+            echo "</table>";
         }
+
+        ////////////////////// QUERY 3: Settore= informatico; nomeSettore=si; university= qualsiasi //////////////////////////
+        else if((strcmp($sector, "informatica") == 0) && (strcmp($certificate, "-") == 0) && (strcmp($university, "qualsiasi")==0) && (strcmp($selected_radio, "si")==0)){
+            $rows3 = $store->query($query3, 'rows');
+            echo "<table border='1'  class=\"table table-small-font table-sm table-bordered table-striped\" >
+                  <thead>
+                      <th>Candidato</th>
+                      <th>Settore</th>
+                      <th>Studi universitari</th>
+                      <th>Corso di studi</th>
+                 </thead>";
+
+            /* loop for each returned row */
+            foreach( $rows3 as $row ) {
+                /*Stampo le sottostinge dell'URI contente solo i nomi*/
+                print "<tr><td>" .substr($row['candidato'], strpos($row['candidato'], "#") + 1)."</td>
+                             <td>".substr($row['settoreStudi'], strpos($row['settoreStudi'], "#") + 1)."</td>
+                             <td>".substr($row['studiUniversitari'], strpos($row['studiUniversitari'], "#") + 1)."</td>
+                             <td>" .$row['nomeTitoloDiStudi']."</td>
+                            </tr>";
+            }
+            echo "</table>";
+
+        }
+
         else {
             echo "not working";
             exit;
@@ -223,24 +329,8 @@
         }
 
 
-        /* display the results in an HTML table */
-        echo "<table border='1'  class=\"table table-small-font table-sm table-bordered table-striped\" >
-      <thead>
-          <th>candidato</th>
-          <th>laurea specialistica</th>
-      </thead>";
 
-        /* loop for each returned row */
-        foreach( $rows as $row ) {
-           /* print "<tr><td>" .$row['candidato']."</td>
-            <td>" .$row['laurea specialistica']. "</td></tr>";
-           */
 
-            /*Stampo le sottostinge dell'URI contente solo i nomi*/
-            print "<tr><td>" .substr($row['candidato'], strpos($row['candidato'], "#") + 1)."</td> 
-         <td>" .substr($row['ls'], strpos($row['ls'], "#") + 1). "</td></tr>";
-        }
-        echo "</table>"
 
         ?>
 

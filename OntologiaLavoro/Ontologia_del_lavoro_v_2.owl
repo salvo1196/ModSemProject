@@ -158,6 +158,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_è_di">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#possiede"/>
+        <rdfs:comment>Indica a chi appartiene un CV</rdfs:comment>
+        <rdfs:label>CV_è_di</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -167,6 +169,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#annuncioConsigliato">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <rdfs:comment>Un annuncio consigliato per un certo candiddato</rdfs:comment>
+        <rdfs:label>annuncioConsigliato</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -178,6 +182,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+        <rdfs:comment>contiene qualcosa</rdfs:comment>
+        <rdfs:label>contiene</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -188,6 +194,8 @@
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Contratto"/>
         <owl:propertyDisjointWith rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haContratto"/>
+        <rdfs:comment>contratto proposto per un&apos;offerta di lavoro</rdfs:comment>
+        <rdfs:label>contrattoProposto</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -198,6 +206,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#pubblica"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:comment>pubblicazione di un annuncio</rdfs:comment>
+        <rdfs:label>ePubblicato</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -208,6 +218,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haRuolo"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
         <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment>è ruolo di qualcosa</rdfs:comment>
+        <rdfs:label>eUnRuoloDi</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -218,6 +230,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#èGestitaDa"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:comment>indica chi gestisce un&apos;azienda</rdfs:comment>
+        <rdfs:label>gestisce</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -226,6 +240,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haCampo">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+        <rdfs:comment>campi di un CV</rdfs:comment>
+        <rdfs:label>haCampo</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -235,6 +251,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haCompetenze">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+        <rdfs:comment>possiede una certa competenza</rdfs:comment>
+        <rdfs:label>haCompetenze</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -244,6 +262,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haCompetenzeRichieste">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+        <rdfs:comment>possiede delle competenze richieste in un annuncio</rdfs:comment>
+        <rdfs:label>haCompetenzeRichieste</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -255,6 +275,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Contratto"/>
+        <rdfs:comment>indica il contratto di lavoro</rdfs:comment>
+        <rdfs:label>haContratto</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -265,6 +287,8 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#lavoraPer"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <rdfs:comment>lavoratore di un&apos;azienda</rdfs:comment>
+        <rdfs:label>haLavoratore</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -274,6 +298,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haRuolo">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
         <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment>il ruolo di qualcosa</rdfs:comment>
+        <rdfs:label>haRuolo</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -283,6 +309,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSedePrincipaleIn">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Nazione"/>
+        <rdfs:comment>indica la sede principale di un&apos;azienda</rdfs:comment>
+        <rdfs:label>haSedePrincipaleIn</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -296,6 +324,8 @@
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#ePubblicato"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAzienda"/>
         </owl:propertyChainAxiom>
+        <rdfs:comment>indica il settore di un annuncio</rdfs:comment>
+        <rdfs:label>haSettoreAnnuncio</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -306,6 +336,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
+        <rdfs:comment>indica il settore in cui opera un&apos;azienda</rdfs:comment>
+        <rdfs:label>haSettoreAzienda</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -326,6 +358,8 @@
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haCampo"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreStudi"/>
         </owl:propertyChainAxiom>
+        <rdfs:comment>indica il settore di interesse di un candidato</rdfs:comment>
+        <rdfs:label>haSettoreDiInteresse</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -336,6 +370,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#StudiUniversitari"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
+        <rdfs:comment>indica il settore di studi</rdfs:comment>
+        <rdfs:label>haSettoreStudi</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -351,6 +387,8 @@
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#lavoraPer"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAzienda"/>
         </owl:propertyChainAxiom>
+        <rdfs:comment>indica il settore in cui lavora un candidato</rdfs:comment>
+        <rdfs:label>lavoraNelSettore</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -360,6 +398,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#lavoraPer">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:comment>indica l&apos;azienda per cui lavora un candidato</rdfs:comment>
+        <rdfs:label>lavoraPer</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -369,6 +409,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#possiede">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
+        <rdfs:comment>a chi appartiene il CV</rdfs:comment>
+        <rdfs:label>possiede</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -380,6 +422,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <rdfs:comment>indica chi pubblica un annuncio</rdfs:comment>
+        <rdfs:label>pubblica</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -388,6 +432,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#èContenutoIn">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:comment>qualcosa è contenuta in qualcosa</rdfs:comment>
+        <rdfs:label>èContenutoIn</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -397,6 +443,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#èGestitaDa">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <rdfs:comment>da chi è gestita un&apos;azienda</rdfs:comment>
+        <rdfs:label>èGestitaDa</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -481,6 +529,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#anniCarriera">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>Il numero di anni di carriera</rdfs:comment>
+        <rdfs:label>anniCarriera</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -490,6 +540,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#benefits">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>i benefits di un annuncio lavorativo</rdfs:comment>
+        <rdfs:label>benefits</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -500,6 +552,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>indica se un candidato cerca lavoro opure no</rdfs:comment>
+        <rdfs:label>cercaLavoro</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -508,6 +562,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenzeDettagli">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+        <rdfs:comment>mostra i dattegli di una competenza</rdfs:comment>
+        <rdfs:label>competenzeDettagli</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -517,6 +573,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenzeRichiesteDettagli">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>mostra i dettagli di una competenza richiesta</rdfs:comment>
+        <rdfs:label>competenzeRichiesteDettagli</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -527,6 +585,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment>data di nascita di un individuo</rdfs:comment>
+        <rdfs:label>dataNascita</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -536,6 +596,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#descrizione">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>descrizione di un annuncio</rdfs:comment>
+        <rdfs:label>descrizione</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -544,6 +606,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#email">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>indirizzo di posta elettronica</rdfs:comment>
+        <rdfs:label>email</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -553,6 +617,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#genere">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>il genere di un agente</rdfs:comment>
+        <rdfs:label>genere</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -607,6 +673,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
                 </owl:oneOf>
             </rdfs:Datatype>
         </rdfs:range>
+        <rdfs:comment>funzione lavorativa che ha occupato un agente</rdfs:comment>
+        <rdfs:label>haOccupatoFunzione</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -616,6 +684,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#indirizzo">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>indirizzo di un luogo</rdfs:comment>
+        <rdfs:label>indirizzo</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -625,6 +695,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#luogo">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>luogo geografico</rdfs:comment>
+        <rdfs:label>luogo</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -634,6 +706,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#nazionalita">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>nazione di nascita di un agente</rdfs:comment>
+        <rdfs:label>nazionalita</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -642,6 +716,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#nome">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>nome di un individuo</rdfs:comment>
+        <rdfs:label>nome</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -651,6 +727,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#nomeAzienda">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>nome di un&apos;azienda</rdfs:comment>
+        <rdfs:label>nomeAzienda</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -660,6 +738,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#numeroSedi">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>nomero delle sedi di un&apos;azienda</rdfs:comment>
+        <rdfs:label>numeroSedi</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -669,6 +749,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#oreDiLavoro">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>ore di lavoro previste in un annuncio</rdfs:comment>
+        <rdfs:label>oreDiLavoro</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -680,6 +762,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>professione di un agente</rdfs:comment>
+        <rdfs:label>professione</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -688,6 +772,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#recapitoTelefonico">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>numero di telefono di un individuo</rdfs:comment>
+        <rdfs:label>recapitoTelefonico</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -696,6 +782,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#salarioMensile">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>salario mensile previsto in un&apos;offerta di lavoro</rdfs:comment>
+        <rdfs:label>salarioMensile</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -705,6 +793,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#viveIn">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>luogo in cui vive un individuo</rdfs:comment>
+        <rdfs:label>viveIn</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -766,6 +856,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AI">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Informatico"/>
+        <rdfs:comment>Intelligenza Artificiale</rdfs:comment>
+        <rdfs:label>AI</rdfs:label>
     </owl:Class>
     
 
@@ -774,6 +866,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Agricoltura">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AgroAlimentare"/>
+        <rdfs:comment>Settore dell&apos;agricoltura</rdfs:comment>
+        <rdfs:label>Agricoltura</rdfs:label>
     </owl:Class>
     
 
@@ -792,6 +886,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AltreCompetenze">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+        <rdfs:comment>Competenze di vario tipo</rdfs:comment>
+        <rdfs:label>AltreCompetenze</rdfs:label>
     </owl:Class>
     
 
@@ -825,6 +921,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AnnuncioCondizioniVantaggiose">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <rdfs:comment>Annuncio le cui condizioni contrattuli sono vantaggiose</rdfs:comment>
+        <rdfs:label>AnnuncioCondizioniVantaggiose</rdfs:label>
     </owl:Class>
     
 
@@ -855,7 +953,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
-        <rdfs:label>Annuncio in cui viene proprosto un contratto a tempo Indeterminato</rdfs:label>
+        <rdfs:comment>Annuncio in cui viene proprosto un contratto a tempo Indeterminato</rdfs:comment>
         <rdfs:label>AnnuncioIndeterminato</rdfs:label>
     </owl:Class>
     
@@ -897,6 +995,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Artistica">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+        <rdfs:comment>Competenze in campo artistico</rdfs:comment>
+        <rdfs:label>Artistica</rdfs:label>
     </owl:Class>
     
 
@@ -905,6 +1005,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AssistenteDentista">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Sanitario"/>
+        <rdfs:comment>Assistente di un dentista</rdfs:comment>
+        <rdfs:label>AssistenteDentista</rdfs:label>
     </owl:Class>
     
 
@@ -913,6 +1015,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AssistenteVendite">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Automobilistico"/>
+        <rdfs:comment>Un assistente venditore di auto</rdfs:comment>
+        <rdfs:label>AssistenteVendite</rdfs:label>
     </owl:Class>
     
 
@@ -921,6 +1025,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AttivitaPrincipali">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#EsperienzeProfessionali"/>
+        <rdfs:comment>Attività principali svolte nell&apos;ambito lavorativo</rdfs:comment>
+        <rdfs:label>AttivitaPrincipali</rdfs:label>
     </owl:Class>
     
 
@@ -958,6 +1064,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AziendaAutomotive">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:comment>Azienda che si occupa di Automotive</rdfs:comment>
+        <rdfs:label>AziendaAutomotive</rdfs:label>
     </owl:Class>
     
 
@@ -996,8 +1104,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+        <rdfs:comment>CV di un candidato</rdfs:comment>
         <rdfs:label>CV</rdfs:label>
-        <rdfs:label>CV di un candidato</rdfs:label>
     </owl:Class>
     
 
@@ -1077,7 +1185,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
         <rdfs:comment>Candidato avente un CV importante dal punto di vista manageriale</rdfs:comment>
-        <rdfs:comment>CandidatoCVImportante</rdfs:comment>
+        <rdfs:label>CandidatoCVImportante</rdfs:label>
     </owl:Class>
     
 
@@ -1112,6 +1220,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <rdfs:comment>Candidato che ha conseguito il dottorato</rdfs:comment>
+        <rdfs:label>CandidatoRicercatore</rdfs:label>
     </owl:Class>
     
 
@@ -1120,6 +1230,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CandidatoSecondoLavoro">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
+        <rdfs:comment>Candidato che ha già un lavoro e ne cerca un altro</rdfs:comment>
+        <rdfs:label>CandidatoSecondoLavoro</rdfs:label>
     </owl:Class>
     
 
@@ -1128,6 +1240,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CertificatiLingua">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#IstruzioneEFormazione"/>
+        <rdfs:comment>Certificati di lingua straniera</rdfs:comment>
+        <rdfs:label>CertificatiLingua</rdfs:label>
     </owl:Class>
     
 
@@ -1136,6 +1250,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Chimica">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#ManifatturieroArtiginato"/>
+        <rdfs:comment>Settore chimico</rdfs:comment>
+        <rdfs:label>Chimica</rdfs:label>
     </owl:Class>
     
 
@@ -1144,6 +1260,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Chirurgico">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Sanitario"/>
+        <rdfs:comment>Settore chirurgico</rdfs:comment>
+        <rdfs:label>Chirurgico</rdfs:label>
     </owl:Class>
     
 
@@ -1152,6 +1270,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+        <rdfs:comment>Sezione Competenze di un CV</rdfs:comment>
+        <rdfs:label>Competenze</rdfs:label>
     </owl:Class>
     
 
@@ -1160,6 +1280,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Computer">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+        <rdfs:comment>Competenze con l&apos;uso del computer</rdfs:comment>
+        <rdfs:label>Computer</rdfs:label>
     </owl:Class>
     
 
@@ -1168,6 +1290,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Contabilita">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Economico"/>
+        <rdfs:comment>Settore della contabilità</rdfs:comment>
+        <rdfs:label>Contabilita</rdfs:label>
     </owl:Class>
     
 
@@ -1200,6 +1324,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#DeepLearning">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AI"/>
+        <rdfs:comment>Settore dell&apos;apprendimento profondo</rdfs:comment>
+        <rdfs:label>DeepLearning</rdfs:label>
     </owl:Class>
     
 
@@ -1208,6 +1334,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Dentista">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Sanitario"/>
+        <rdfs:comment>Settore odontoiatrico</rdfs:comment>
+        <rdfs:label>Dentista</rdfs:label>
     </owl:Class>
     
 
@@ -1216,6 +1344,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#DeveloperBackEnd">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Informatico"/>
+        <rdfs:comment>Sviluppatore frontend</rdfs:comment>
+        <rdfs:label>DeveloperBackEnd</rdfs:label>
     </owl:Class>
     
 
@@ -1224,6 +1354,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#DeveloperFrontEnd">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Informatico"/>
+        <rdfs:comment>Sviluppatore backend</rdfs:comment>
+        <rdfs:label>DeveloperFrontEnd</rdfs:label>
     </owl:Class>
     
 
@@ -1232,6 +1364,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Diploma">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#IstruzioneEFormazione"/>
+        <rdfs:comment>Diploma di scuola superiore</rdfs:comment>
+        <rdfs:label>Diploma</rdfs:label>
     </owl:Class>
     
 
@@ -1240,6 +1374,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Direttore">
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role"/>
+        <rdfs:comment>Direttore di un&apos;azienda</rdfs:comment>
+        <rdfs:label>Direttore</rdfs:label>
     </owl:Class>
     
 
@@ -1248,6 +1384,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#DistribuzioneCommerciale">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#ServiziCommerciali"/>
+        <rdfs:comment>Settore della distribuzione commerciale</rdfs:comment>
+        <rdfs:label>DistribuzioneCommerciale</rdfs:label>
     </owl:Class>
     
 
@@ -1256,6 +1394,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Dottorato">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#StudiUniversitari"/>
+        <rdfs:comment>Dottorato di ricerca</rdfs:comment>
+        <rdfs:label>Dottorato</rdfs:label>
     </owl:Class>
     
 
@@ -1264,6 +1404,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Ecommerce">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Economico"/>
+        <rdfs:comment>Settore dell&apos;ecommerce</rdfs:comment>
+        <rdfs:label>Ecommerce</rdfs:label>
     </owl:Class>
     
 
@@ -1282,6 +1424,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#EsperienzeProfessionali">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+        <rdfs:comment>Sezione Esperienze Professionali di un CV</rdfs:comment>
+        <rdfs:label>EsperienzeProfessionali</rdfs:label>
     </owl:Class>
     
 
@@ -1290,6 +1434,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Finanza">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Economico"/>
+        <rdfs:comment>Settore della finanza</rdfs:comment>
+        <rdfs:label>Finanza</rdfs:label>
     </owl:Class>
     
 
@@ -1298,6 +1444,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#EsperienzeProfessionali"/>
+        <rdfs:comment>Funzioni svolte nell&apos;ambito lavorativo</rdfs:comment>
+        <rdfs:label>FunzioniOccupate</rdfs:label>
     </owl:Class>
     
 
@@ -1306,6 +1454,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Gommista">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Automobilistico"/>
+        <rdfs:comment>Un gommista</rdfs:comment>
+        <rdfs:label>Gommista</rdfs:label>
     </owl:Class>
     
 
@@ -1314,6 +1464,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Impiegato">
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role"/>
+        <rdfs:comment>Impiegato di un&apos;azienda</rdfs:comment>
+        <rdfs:label>Impiegato</rdfs:label>
     </owl:Class>
     
 
@@ -1322,6 +1474,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+        <rdfs:comment>Sezione Info Personali di un CV</rdfs:comment>
+        <rdfs:label>InfoPersonali</rdfs:label>
     </owl:Class>
     
 
@@ -1340,6 +1494,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#IstruzioneEFormazione">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Campi_CV"/>
+        <rdfs:comment>Sezione Istruzione e Formazione di un CV</rdfs:comment>
+        <rdfs:label>IstruzioneEFormazione</rdfs:label>
     </owl:Class>
     
 
@@ -1348,6 +1504,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaMagistrale">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#StudiUniversitari"/>
+        <rdfs:comment>Titolo di laurea magistrale</rdfs:comment>
+        <rdfs:label>LaureaMagistrale</rdfs:label>
     </owl:Class>
     
 
@@ -1356,6 +1514,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaSpecialistica">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#StudiUniversitari"/>
+        <rdfs:comment>Titolo di laurea specialistica</rdfs:comment>
+        <rdfs:label>LaureaSpecialistica</rdfs:label>
     </owl:Class>
     
 
@@ -1364,6 +1524,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaTriennale">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#StudiUniversitari"/>
+        <rdfs:comment>Titolo di laurea triennale</rdfs:comment>
+        <rdfs:label>LaureaTriennale</rdfs:label>
     </owl:Class>
     
 
@@ -1372,6 +1534,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#LegnoArredo">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#ManifatturieroArtiginato"/>
+        <rdfs:comment>Settore degli arredi in legno</rdfs:comment>
+        <rdfs:label>LegnoArredo</rdfs:label>
     </owl:Class>
     
 
@@ -1380,6 +1544,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#MachineLearning">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AI"/>
+        <rdfs:comment>Settore in ambito apprendimento automatico</rdfs:comment>
+        <rdfs:label>MachineLearning</rdfs:label>
     </owl:Class>
     
 
@@ -1388,6 +1554,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Management">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Economico"/>
+        <rdfs:comment>Settore del management</rdfs:comment>
+        <rdfs:label>Management</rdfs:label>
     </owl:Class>
     
 
@@ -1396,6 +1564,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Manager">
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role"/>
+        <rdfs:comment>Manager di un&apos;azienda</rdfs:comment>
+        <rdfs:label>Manager</rdfs:label>
     </owl:Class>
     
 
@@ -1414,6 +1584,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Marketing">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Economico"/>
+        <rdfs:comment>Settore del marketing</rdfs:comment>
+        <rdfs:label>Marketing</rdfs:label>
     </owl:Class>
     
 
@@ -1422,6 +1594,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#MaterialiDaCostruzione">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#ManifatturieroArtiginato"/>
+        <rdfs:comment>Settore dei materiali da costruzione</rdfs:comment>
+        <rdfs:label>MaterialiDaCostruzione</rdfs:label>
     </owl:Class>
     
 
@@ -1514,6 +1688,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Moda">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#ManifatturieroArtiginato"/>
+        <rdfs:comment>Settore della moda</rdfs:comment>
+        <rdfs:label>Moda</rdfs:label>
     </owl:Class>
     
 
@@ -1545,7 +1721,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
         <rdfs:comment>Azienda avente un numero di sedi maggiore o uguale di 30</rdfs:comment>
-        <rdfs:comment>Multinazionale</rdfs:comment>
+        <rdfs:label>Multinazionale</rdfs:label>
     </owl:Class>
     
 
@@ -1566,6 +1742,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
                 </owl:oneOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:comment>Nazione del pianeta Terra</rdfs:comment>
+        <rdfs:label>Nazione</rdfs:label>
     </owl:Class>
     
 
@@ -1574,6 +1752,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Operaio">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Automobilistico"/>
+        <rdfs:comment>Un operaio del settore automobilistico</rdfs:comment>
+        <rdfs:label>Operaio</rdfs:label>
     </owl:Class>
     
 
@@ -1582,6 +1762,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#OperaioElettrauto">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Operaio"/>
+        <rdfs:comment>Un elettrauto</rdfs:comment>
+        <rdfs:label>OperaioElettrauto</rdfs:label>
     </owl:Class>
     
 
@@ -1590,6 +1772,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#OperaioMeccanico">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Operaio"/>
+        <rdfs:comment>Un meccanico</rdfs:comment>
+        <rdfs:label>OperaioMeccanico</rdfs:label>
     </owl:Class>
     
 
@@ -1598,6 +1782,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Organizzazione">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+        <rdfs:comment>Competenze in campo organizzativo</rdfs:comment>
+        <rdfs:label>Organizzazione</rdfs:label>
     </owl:Class>
     
 
@@ -1606,6 +1792,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Ottico">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Sanitario"/>
+        <rdfs:comment>Settore ottico</rdfs:comment>
+        <rdfs:label>Ottico</rdfs:label>
     </owl:Class>
     
 
@@ -1614,6 +1802,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Pesca">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AgroAlimentare"/>
+        <rdfs:comment>Settore della pesca</rdfs:comment>
+        <rdfs:label>Pesca</rdfs:label>
     </owl:Class>
     
 
@@ -1622,6 +1812,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#ProduzioniAlimentari">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AgroAlimentare"/>
+        <rdfs:comment>Settore della produzione di alimenti</rdfs:comment>
+        <rdfs:label>ProduzioniAlimentari</rdfs:label>
     </owl:Class>
     
 
@@ -1630,6 +1822,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#RetiNeurali">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AI"/>
+        <rdfs:comment>Settore delle reti neurali</rdfs:comment>
+        <rdfs:label>RetiNeurali</rdfs:label>
     </owl:Class>
     
 
@@ -1638,6 +1832,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Ricercatore">
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role"/>
+        <rdfs:comment>Ricercatore per un certo settore</rdfs:comment>
+        <rdfs:label>Ricercatore</rdfs:label>
     </owl:Class>
     
 
@@ -1656,6 +1852,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#SeriziFinanziariAssicurativi">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#ServiziCommerciali"/>
+        <rdfs:comment>Settore assicurativo</rdfs:comment>
+        <rdfs:label>SeriziFinanziariAssicurativi</rdfs:label>
     </owl:Class>
     
 
@@ -1683,6 +1881,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Sociale">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+        <rdfs:comment>Competenze in campo sociale</rdfs:comment>
+        <rdfs:label>Sociale</rdfs:label>
     </owl:Class>
     
 
@@ -1698,7 +1898,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
         <rdfs:comment>Azienda avente una sola sede</rdfs:comment>
-        <rdfs:comment>Startup</rdfs:comment>
+        <rdfs:label>Startup</rdfs:label>
     </owl:Class>
     
 
@@ -1707,6 +1907,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Studente">
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role"/>
+        <rdfs:comment>Studente di un certo istituto di istruzione</rdfs:comment>
+        <rdfs:label>Studente</rdfs:label>
     </owl:Class>
     
 
@@ -1715,6 +1917,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#StudiUniversitari">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#IstruzioneEFormazione"/>
+        <rdfs:comment>Carriera universitaria</rdfs:comment>
+        <rdfs:label>StudiUniversitari</rdfs:label>
     </owl:Class>
     
 
@@ -1723,6 +1927,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Tecniche">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
+        <rdfs:comment>Competenze di tipo tecnico</rdfs:comment>
+        <rdfs:label>Tecniche</rdfs:label>
     </owl:Class>
     
 
@@ -1731,6 +1937,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Trasporti">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#ServiziCommerciali"/>
+        <rdfs:comment>Settore dei trasporti</rdfs:comment>
+        <rdfs:label>Trasporti</rdfs:label>
     </owl:Class>
     
 
@@ -1739,6 +1947,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#mailbox">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+        <rdfs:comment>Indirizzo email</rdfs:comment>
+        <rdfs:label>mailbox</rdfs:label>
     </owl:Class>
     
 
@@ -1747,13 +1957,18 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#phone">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#InfoPersonali"/>
+        <rdfs:comment>Numero di telefono</rdfs:comment>
+        <rdfs:label>phone</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://www.w3.org/2000/10/swap/pim/contact#Person -->
 
-    <rdf:Description rdf:about="http://www.w3.org/2000/10/swap/pim/contact#Person"/>
+    <rdf:Description rdf:about="http://www.w3.org/2000/10/swap/pim/contact#Person">
+        <rdfs:comment>A person</rdfs:comment>
+        <rdfs:label>Person</rdfs:label>
+    </rdf:Description>
     
 
 
@@ -1776,13 +1991,19 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Accessorio -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Accessorio"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Accessorio">
+        <rdfs:comment>tipologia del contrato di un&apos;offerta lavorativa</rdfs:comment>
+        <rdfs:label>Accessorio</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Apprendistato -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Apprendistato"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Apprendistato">
+        <rdfs:comment>tipologia del contrato di un&apos;offerta lavorativa</rdfs:comment>
+        <rdfs:label>Apprendistato</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
@@ -1807,6 +2028,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Elon_Musk">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
         <contiene rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Elon_Musk"/>
+        <rdfs:comment>CV dell&apos;individuo Elon_Musk</rdfs:comment>
+        <rdfs:label>CV_Elon_Musk</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1816,6 +2039,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Jeff_Bezos">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
         <contiene rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Jeff_Bezos"/>
+        <rdfs:comment>CV dell&apos;individuo Jeff_Bezos</rdfs:comment>
+        <rdfs:label>CV_Jeff_Bezos</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1825,6 +2050,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Marco">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
         <contiene rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Marco"/>
+        <rdfs:comment>CV dell&apos;individuo Marco</rdfs:comment>
+        <rdfs:label>CV_Marco</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1834,6 +2061,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Mark_Zuckerberg">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
         <contiene rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_Mark_Zuckerberg"/>
+        <rdfs:comment>CV dell&apos;individuo Mark_Zuckerberg</rdfs:comment>
+        <rdfs:label>CV_Mark_Zuckerberg</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1843,19 +2072,27 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Vittoria">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
         <contiene rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#campi_CV_Vittoria"/>
+        <rdfs:comment>CV dell&apos;individuo Vittoria</rdfs:comment>
+        <rdfs:label>CV_Vittoria</rdfs:label>
     </owl:NamedIndividual>
     
 
 
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Chiamata -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Chiamata"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Chiamata">
+        <rdfs:comment>tipologia del contrato di un&apos;offerta lavorativa</rdfs:comment>
+        <rdfs:label>Chiamata</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Collaborazione -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Collaborazione"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Collaborazione">
+        <rdfs:comment>tipologia del contrato di un&apos;offerta lavorativa</rdfs:comment>
+        <rdfs:label>Collaborazione</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
@@ -1865,6 +2102,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
         <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_organizzazione"/>
         <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_tecniche"/>
+        <rdfs:comment>competenze dell&apos;individuo Elon_Musk</rdfs:comment>
+        <rdfs:label>Competenze_Elon_Musk</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1876,13 +2115,18 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_AltreCompetenze"/>
         <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_tecniche"/>
         <competenzeDettagli rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Biologia, chimica degli alimenti</competenzeDettagli>
+        <rdfs:comment>competenze dell&apos;individuo Vittoria</rdfs:comment>
+        <rdfs:label>Competenze_Vittoria</rdfs:label>
     </owl:NamedIndividual>
     
 
 
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Determinato -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Determinato"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Determinato">
+        <rdfs:comment>tipologia del contrato di un&apos;offerta lavorativa</rdfs:comment>
+        <rdfs:label>Determinato</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
@@ -1892,25 +2136,36 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
         <lavoraPer rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Tesla"/>
         <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Elon_Musk"/>
+        <rdfs:comment>candidato Elon_Musk</rdfs:comment>
+        <rdfs:label>Elon_Musk</rdfs:label>
     </owl:NamedIndividual>
     
 
 
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Francia -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Francia"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Francia">
+        <rdfs:comment>Una nazione</rdfs:comment>
+        <rdfs:label>Francia</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Germania -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Germania"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Germania">
+        <rdfs:comment>Una nazione</rdfs:comment>
+        <rdfs:label>Germania</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Indeterminato -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Indeterminato"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Indeterminato">
+        <rdfs:comment>tipologia del contrato di un&apos;offerta lavorativa</rdfs:comment>
+        <rdfs:label>Indeterminato</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
@@ -1928,13 +2183,18 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <foaf:firstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Elon</foaf:firstName>
         <foaf:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">maschio</foaf:gender>
         <foaf:surname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Musk</foaf:surname>
+        <rdfs:comment>info personali dell&apos;individuo Elon_Musk</rdfs:comment>
+        <rdfs:label>InfoPersonali_Elon_Musk</rdfs:label>
     </owl:NamedIndividual>
     
 
 
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Italia -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Italia"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Italia">
+        <rdfs:comment>Una nazione</rdfs:comment>
+        <rdfs:label>Italia</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
@@ -1945,6 +2205,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <lavoraPer rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Amazon"/>
         <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Jeff_Bezos"/>
         <cercaLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cercaLavoro>
+        <rdfs:comment>candidato Jeff_Bezos</rdfs:comment>
+        <rdfs:label>Jeff_Bezos</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1957,6 +2219,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <lavoraPer rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_InfoTech"/>
         <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Marco"/>
         <salarioMensile rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1400.0</salarioMensile>
+        <rdfs:comment>candidato Marco</rdfs:comment>
+        <rdfs:label>Marco</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1966,13 +2230,18 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Mark_Zuckerberg">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
         <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Mark_Zuckerberg"/>
+        <rdfs:comment>candidato Mark_Zuckerberg</rdfs:comment>
+        <rdfs:label>Mark_Zuckerberg</rdfs:label>
     </owl:NamedIndividual>
     
 
 
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#PartTime -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#PartTime"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#PartTime">
+        <rdfs:comment>tipologia del contrato di un&apos;offerta lavorativa</rdfs:comment>
+        <rdfs:label>PartTime</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
@@ -1981,44 +2250,63 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Phone_Jeff_Bezos">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone"/>
         <recapitoTelefonico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">345565768</recapitoTelefonico>
-        <schema:image rdf:resource="https://www.milanofinanza.it/remote/static.milanofinanza.it/content_upload/img/2020/03/202003182050118868/bezos-498340.jpg?w=403&amp;h=211&amp;mode=crop&amp;format=jpg&amp;quality=65"/>
+        <rdfs:comment>numero telefonico dell&apos;individuo Jeff_Bezos</rdfs:comment>
+        <rdfs:label>Phone_Jeff_Bezos</rdfs:label>
     </owl:NamedIndividual>
     
 
 
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Progetto -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Progetto"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Progetto">
+        <rdfs:comment>tipologia del contrato di un&apos;offerta lavorativa</rdfs:comment>
+        <rdfs:label>Progetto</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Russia -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Russia"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Russia">
+        <rdfs:comment>Una nazione</rdfs:comment>
+        <rdfs:label>Russia</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Svezia -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Svezia"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Svezia">
+        <rdfs:comment>Una nazione</rdfs:comment>
+        <rdfs:label>Svezia</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Tirocinio -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Tirocinio"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Tirocinio">
+        <rdfs:comment>tipologia del contrato di un&apos;offerta lavorativa</rdfs:comment>
+        <rdfs:label>Tirocinio</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#UK -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#UK"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#UK">
+        <rdfs:comment>Una nazione</rdfs:comment>
+        <rdfs:label>UK</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#USA -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#USA"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#USA">
+        <rdfs:comment>Una nazione</rdfs:comment>
+        <rdfs:label>USA</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
@@ -2027,6 +2315,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Vittoria">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
         <possiede rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_Vittoria"/>
+        <rdfs:comment>candidato Vittoria</rdfs:comment>
+        <rdfs:label>Vittoria</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2043,6 +2333,26 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Si ricerca un magazzienre svelto e audace</descrizione>
         <oreDiLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</oreDiLavoro>
         <salarioMensile rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2900.0</salarioMensile>
+        <rdfs:comment>offerta di lavoro dell&apos;azienda Amazon</rdfs:comment>
+        <rdfs:label>annuncio_Amazon</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#annuncio_Amazon_due -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#annuncio_Amazon_due">
+        <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
+        <contrattoProposto rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Indeterminato"/>
+        <ePubblicato rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Amazon"/>
+        <haCompetenzeRichieste rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Computer"/>
+        <frapo:hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Torino</frapo:hasCountry>
+        <competenzeRichiesteDettagli rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protege, GraphDB</competenzeRichiesteDettagli>
+        <descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Si ricerca un tecnico informatico che sappia usare bene i linked data</descrizione>
+        <oreDiLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</oreDiLavoro>
+        <salarioMensile rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1800.0</salarioMensile>
+        <rdfs:comment>offerta di lavoro dell&apos;azienda Amazon</rdfs:comment>
+        <rdfs:label>annuncio_Amazon_due</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2062,6 +2372,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <descrizione>Si cerca uno sviluppatore per la creazione di applicazioni IOS</descrizione>
         <oreDiLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</oreDiLavoro>
         <salarioMensile rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1800.0</salarioMensile>
+        <rdfs:comment>offerta di lavoro dell&apos;azienda Apple</rdfs:comment>
+        <rdfs:label>annuncio_Apple</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2078,6 +2390,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">analisi tecniche dei componenti nutrizionali</descrizione>
         <oreDiLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</oreDiLavoro>
         <salarioMensile rdf:datatype="http://www.w3.org/2001/XMLSchema#float">500.0</salarioMensile>
+        <rdfs:comment>offerta di lavoro dell&apos;azienda Orogel</rdfs:comment>
+        <rdfs:label>annuncio_Orogel</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2093,6 +2407,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <descrizione>Si propone un lavoro a tempo determinato per la relaizzazione di una nuova vettura della casa automobilistica Tesla</descrizione>
         <oreDiLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</oreDiLavoro>
         <salarioMensile rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2100.0</salarioMensile>
+        <rdfs:comment>offerta di lavoro dell&apos;azienda Tesla</rdfs:comment>
+        <rdfs:label>annuncio_Tesla</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2101,6 +2417,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#artificial_intelligence">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AI"/>
+        <rdfs:comment>Tipo di settore informatico</rdfs:comment>
+        <rdfs:label>artificial_intelligence</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2110,6 +2428,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Elon_Musk">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AttivitaPrincipali"/>
         <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Invetore del primo modello di tesla e finanziatore di quest&apos;ultima.</nome>
+        <rdfs:comment>attività principali dell&apos;individuo Elon_Musk</rdfs:comment>
+        <rdfs:label>attivitaPrincipali_Elon_Musk</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2119,6 +2439,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Jeff_Bezos">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AttivitaPrincipali"/>
         <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Management dell&apos;azienda, gestione finanze, gestione rierca e sviluppo</nome>
+        <rdfs:comment>attività principali dell&apos;individuo Jeff_Bezos</rdfs:comment>
+        <rdfs:label>attivitaPrincipali_Jeff_Bezos</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2128,6 +2450,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Marco">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AttivitaPrincipali"/>
         <nome>sviluppo interfacce web, collaborazione con Pinco Pallino SRL</nome>
+        <rdfs:comment>attività principali dell&apos;individuo Marco</rdfs:comment>
+        <rdfs:label>attivitaPrincipali_Marco</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2137,6 +2461,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Mark_Zuckerberg">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AttivitaPrincipali"/>
         <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gestione delle finanze e contabile</nome>
+        <rdfs:comment>attività principali dell&apos;individuo Mark_Zuckerberg</rdfs:comment>
+        <rdfs:label>attivitaPrincipali_Mark_Zuckerberg</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2146,6 +2472,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Vittoria">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AttivitaPrincipali"/>
         <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Analisi componenti nutritivi</nome>
+        <rdfs:comment>attività principali dell&apos;individuo Vittoria</rdfs:comment>
+        <rdfs:label>attivitaPrincipali_Vittoria</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2159,6 +2487,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <haSedePrincipaleIn rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#USA"/>
         <haSettoreAzienda rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_eCommerce"/>
         <numeroSedi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</numeroSedi>
+        <rdfs:comment>un&apos;azienda</rdfs:comment>
+        <rdfs:label>azienda_Amazon</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2170,6 +2500,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <haSedePrincipaleIn rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#USA"/>
         <haSettoreAzienda rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_informatica"/>
         <numeroSedi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</numeroSedi>
+        <rdfs:comment>un&apos;azienda</rdfs:comment>
+        <rdfs:label>azienda_Apple</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2179,6 +2511,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_InfoTech">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
         <haSettoreAzienda rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_informatica"/>
+        <rdfs:comment>un&apos;azienda</rdfs:comment>
+        <rdfs:label>azienda_InfoTech</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2190,6 +2524,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <haSedePrincipaleIn rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Italia"/>
         <haSettoreAzienda rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_ProduzioneAlimentare"/>
         <numeroSedi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</numeroSedi>
+        <rdfs:comment>un&apos;azienda</rdfs:comment>
+        <rdfs:label>azienda_Orogel</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2199,6 +2535,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_OttoVolante">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
         <numeroSedi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</numeroSedi>
+        <rdfs:comment>un&apos;azienda</rdfs:comment>
+        <rdfs:label>azienda_OttoVolante</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2209,6 +2547,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
         <haSedePrincipaleIn rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Italia"/>
         <haSettoreAzienda rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive"/>
+        <rdfs:comment>un&apos;azienda</rdfs:comment>
+        <rdfs:label>azienda_Tesla</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2222,6 +2562,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#attivitaPrincipali_Elon_Musk"/>
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#dottorato_Elon_Musk"/>
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Elon_Musk"/>
+        <rdfs:comment>campi del CV di Elon_Musk</rdfs:comment>
+        <rdfs:label>campi_CV_Elon_Musk</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2237,6 +2579,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Jeff_Bezos"/>
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Jeff_Bezos"/>
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_specialistica_Jeff_Bezos"/>
+        <rdfs:comment>campi del CV di Jeff_Bezos</rdfs:comment>
+        <rdfs:label>campi_CV_Jeff_Bezos</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2252,6 +2596,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Marco"/>
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_specialistica_Marco"/>
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_triennale_Marco"/>
+        <rdfs:comment>campi del CV di Marco</rdfs:comment>
+        <rdfs:label>campi_CV_Marco</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2266,6 +2612,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Vittoria"/>
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Vittoria"/>
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_triennale_Vittoria"/>
+        <rdfs:comment>campi del CV di Vittoria</rdfs:comment>
+        <rdfs:label>campi_CV_Vittoria</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2279,6 +2627,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Mark_Zuckerberg"/>
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#infoPersonali_Mark_Zuckerberg"/>
         <haCampo rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#laurea_magistrale_Mark_Zuckerberg"/>
+        <rdfs:comment>campi del CV di Mark_Zuckerberg</rdfs:comment>
+        <rdfs:label>campi_Mark_Zuckerberg</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2288,6 +2638,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#certificatiLingua_Jeff_Bezos">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CertificatiLingua"/>
         <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C2 inglese</nome>
+        <rdfs:comment>certificati di lingua dell&apos;individuo Jeff_Bezos</rdfs:comment>
+        <rdfs:label>certificatiLingua_Jeff_Bezos</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2297,6 +2649,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#certificatiLingua_Marco">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CertificatiLingua"/>
         <nome>C1 inglese, A2 francese</nome>
+        <rdfs:comment>certificati di lingua dell&apos;individuo Marco</rdfs:comment>
+        <rdfs:label>certificatiLingua_Marco</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2306,6 +2660,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#certificatiLingua_Vittoria">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CertificatiLingua"/>
         <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C2 inglese, B2 francese, B2 spagnolo, A2 russo</nome>
+        <rdfs:comment>certificati di lingua dell&apos;individuo Vittoria</rdfs:comment>
+        <rdfs:label>certificatiLingua_Vittoria</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2314,6 +2670,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_AltreCompetenze">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#AltreCompetenze"/>
+        <rdfs:comment>tipo di competenze posseduta da un individuo</rdfs:comment>
+        <rdfs:label>competenza_AltreCompetenze</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2322,6 +2680,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Artistica">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Artistica"/>
+        <rdfs:comment>tipo di competenze posseduta da un individuo</rdfs:comment>
+        <rdfs:label>competenza_Artistica</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2330,6 +2690,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Computer">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Computer"/>
+        <rdfs:comment>tipo di competenze posseduta da un individuo</rdfs:comment>
+        <rdfs:label>competenza_Computer</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2338,6 +2700,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Sociale">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Sociale"/>
+        <rdfs:comment>tipo di competenze posseduta da un individuo</rdfs:comment>
+        <rdfs:label>competenza_Sociale</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2346,6 +2710,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_organizzazione">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Organizzazione"/>
+        <rdfs:comment>tipo di competenze posseduta da un individuo</rdfs:comment>
+        <rdfs:label>competenza_organizzazione</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2354,6 +2720,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_tecniche">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Tecniche"/>
+        <rdfs:comment>tipo di competenze posseduta da un individuo</rdfs:comment>
+        <rdfs:label>competenza_tecniche</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2363,6 +2731,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#competenze_Jeff_Bezos">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
         <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_organizzazione"/>
+        <rdfs:comment>competenze dell&apos;individuo Jeff_Bezos</rdfs:comment>
+        <rdfs:label>competenze_Jeff_Bezos</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2373,6 +2743,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Competenze"/>
         <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Computer"/>
         <competenzeDettagli>Swift, Flutter, Android, Java, C++</competenzeDettagli>
+        <rdfs:comment>competenze dell&apos;individuo Marco</rdfs:comment>
+        <rdfs:label>competenze_Marco</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2384,6 +2756,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Computer"/>
         <haCompetenze rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_organizzazione"/>
         <competenzeDettagli rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Excel, Java</competenzeDettagli>
+        <rdfs:comment>competenze dell&apos;individuo Mark_Zuckerberg</rdfs:comment>
+        <rdfs:label>competenze_Mark_Zuckerberg</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2392,6 +2766,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#distribuzioneCommerciale">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#DistribuzioneCommerciale"/>
+        <rdfs:comment>tipo di settore</rdfs:comment>
+        <rdfs:label>distribuzioneCommerciale</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2402,6 +2778,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Dottorato"/>
         <haSettoreStudi rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive"/>
         <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Auto a guida autonoma per uso urbano</nome>
+        <rdfs:comment>dottorato dell&apos;individuo Elon_Musk</rdfs:comment>
+        <rdfs:label>dottorato_Elon_Musk</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2412,6 +2790,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Dottorato"/>
         <haSettoreStudi rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#retiNeurali"/>
         <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ecommerce avanzato con utilizzo di AI</nome>
+        <rdfs:comment>dottorato dell&apos;individuo Jeff_Bezos</rdfs:comment>
+        <rdfs:label>dottorato_Jeff_Bezos</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2421,6 +2801,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Elon_Musk">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#mailbox"/>
         <email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">elonMusk90@gmail.com</email>
+        <rdfs:comment>email di Elon_Musk</rdfs:comment>
+        <rdfs:label>email_Elon_Musk</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2430,6 +2812,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Jeff_Bezos">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#mailbox"/>
         <email>jeffBezos@emazon.com</email>
+        <rdfs:comment>email di Jeff_Bezos</rdfs:comment>
+        <rdfs:label>email_Jeff_Bezos</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2439,6 +2823,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Marco">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#mailbox"/>
         <email>marco56@gmail.com</email>
+        <rdfs:comment>email di Marco</rdfs:comment>
+        <rdfs:label>email_Marco</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2448,6 +2834,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Mark_Zuckerberg">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#mailbox"/>
         <email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">markFacebook345@gmail.com</email>
+        <rdfs:comment>email di Mark_Zuckerberg</rdfs:comment>
+        <rdfs:label>email_Mark_Zuckerberg</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2457,6 +2845,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#email_Vittoria">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#mailbox"/>
         <email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">vittoria.gibaudo@unict.ersu.it</email>
+        <rdfs:comment>email di Vittoria</rdfs:comment>
+        <rdfs:label>email_Vittoria</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2465,6 +2855,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#finanza">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Finanza"/>
+        <rdfs:comment>Tipo di settore economico</rdfs:comment>
+        <rdfs:label>finanza</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2474,6 +2866,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#foto_Marco">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
         <schema:image rdf:resource="https://www.nanopress.it/wp-content/uploads/sites/17/2018/02/Immagini-profilo-Facebook.jpg"/>
+        <rdfs:comment>foto di Marco</rdfs:comment>
+        <rdfs:label>foto_Marco</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2483,6 +2877,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#foto_Mark_Zuckerberg">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
         <schema:image rdf:resource="https://www.nanopress.it/wp-content/uploads/sites/17/2018/02/Immagini-profilo-Facebook.jpg"/>
+        <rdfs:comment>foto di Mark_Zuckerberg</rdfs:comment>
+        <rdfs:label>foto_Mark_Zuckerberg</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2492,6 +2888,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#foto_Vittoria">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
         <schema:image rdf:resource="https://www.nanopress.it/wp-content/uploads/sites/17/2018/02/Immagini-profilo-Facebook.jpg"/>
+        <rdfs:comment>foto di Vittoria</rdfs:comment>
+        <rdfs:label>foto_Vittoria</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2501,6 +2899,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#foto_jeff_Bezos">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
         <schema:image rdf:resource="https://www.nanopress.it/wp-content/uploads/sites/17/2018/02/Immagini-profilo-Facebook.jpg"/>
+        <rdfs:comment>foto di Jeff_Bezos</rdfs:comment>
+        <rdfs:label>foto_jeff_Bezos</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2510,6 +2910,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Elon_Musk">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
         <objectrole:hasRole rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CEO"/>
+        <rdfs:comment>funzioni lavorative occupate dal candidato Elon_Musk</rdfs:comment>
+        <rdfs:label>funzioniOccupate_Elon_Musk</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2519,6 +2921,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Jeff_Bezos">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
         <objectrole:hasRole rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#manager"/>
+        <rdfs:comment>funzioni lavorative occupate dal candidato Jeff_Bezos</rdfs:comment>
+        <rdfs:label>funzioniOccupate_Jeff_Bezos</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2529,6 +2933,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
         <objectrole:hasRole rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#impiegato"/>
         <nome>Developer</nome>
+        <rdfs:comment>funzioni lavorative occupate dal candidato Marco</rdfs:comment>
+        <rdfs:label>funzioniOccupate_Marco</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2538,6 +2944,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Mark_Zuckerberg">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
         <objectrole:hasRole rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#manager"/>
+        <rdfs:comment>funzioni lavorative occupate dal candidato Mark_Zuckerberg</rdfs:comment>
+        <rdfs:label>funzioniOccupate_Mark_Zuckerberg</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2547,6 +2955,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Vittoria">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
         <objectrole:hasRole rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#studente"/>
+        <rdfs:comment>funzioni lavorative occupate dal candidato Vittoria</rdfs:comment>
+        <rdfs:label>funzioniOccupate_Vittoria</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2555,6 +2965,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#impiegato">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Impiegato"/>
+        <rdfs:comment>Ruolo lavorativo di un agente</rdfs:comment>
+        <rdfs:label>impiegato</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2574,6 +2986,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <foaf:firstName>Jeff</foaf:firstName>
         <foaf:gender>Maschio</foaf:gender>
         <foaf:surname>Bezos</foaf:surname>
+        <rdfs:comment>info personali dell&apos;individuo Jeff_Bezos</rdfs:comment>
+        <rdfs:label>infoPersonali_Jeff_Bezos</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2592,6 +3006,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <nome>Marco Dionisio</nome>
         <professione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">impiegato</professione>
         <viveIn>Catania</viveIn>
+        <rdfs:comment>info personali dell&apos;individuo Marco</rdfs:comment>
+        <rdfs:label>infoPersonali_Marco</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2611,6 +3027,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <foaf:firstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mark</foaf:firstName>
         <foaf:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Maschio</foaf:gender>
         <foaf:surname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zuckemberg</foaf:surname>
+        <rdfs:comment>info personali dell&apos;individuo Marc_Zuckerberg</rdfs:comment>
+        <rdfs:label>infoPersonali_Mark_Zuckerberg</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2630,6 +3048,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <foaf:firstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vittoria</foaf:firstName>
         <foaf:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Femmina</foaf:gender>
         <foaf:surname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gibaudo</foaf:surname>
+        <rdfs:comment>info personali dell&apos;individuo Vittoria</rdfs:comment>
+        <rdfs:label>infoPersonali_Vittoria</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2640,6 +3060,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaMagistrale"/>
         <haSettoreStudi rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#artificial_intelligence"/>
         <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">intelligenza artificiale e sistemi informatici</nome>
+        <rdfs:comment>laurea dell&apos;individuo Marc_Zuckerberg</rdfs:comment>
+        <rdfs:label>laurea_magistrale_Mark_Zuckerberg</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2650,6 +3072,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaSpecialistica"/>
         <haSettoreStudi rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#finanza"/>
         <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Laurea specialistica in Economia e Management</nome>
+        <rdfs:comment>laurea dell&apos;individuo Jeff_Bezos</rdfs:comment>
+        <rdfs:label>laurea_specialistica_Jeff_Bezos</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2660,6 +3084,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaSpecialistica"/>
         <haSettoreStudi rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#artificial_intelligence"/>
         <nome>Laurea Artificial Intelligence</nome>
+        <rdfs:comment>laurea dell&apos;individuo Marco</rdfs:comment>
+        <rdfs:label>laurea_specialistica_Marco</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2670,6 +3096,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaTriennale"/>
         <haSettoreStudi rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_informatica"/>
         <nome>Laurea In scienze informatiche</nome>
+        <rdfs:comment>laurea dell&apos;individuo Marco</rdfs:comment>
+        <rdfs:label>laurea_triennale_Marco</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2680,6 +3108,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#LaureaTriennale"/>
         <haSettoreStudi rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_Chimica"/>
         <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Laurea in Scienze e tecnologie Alimentari</nome>
+        <rdfs:comment>laurea dell&apos;individuo Vittoria</rdfs:comment>
+        <rdfs:label>laurea_triennale_Vittoria</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2688,6 +3118,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#manager">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Manager"/>
+        <rdfs:comment>Ruolo lavorativo di un agente</rdfs:comment>
+        <rdfs:label>manager</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2697,6 +3129,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Elon_Musk">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone"/>
         <recapitoTelefonico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3556463435</recapitoTelefonico>
+        <rdfs:comment>numero telefonico dell&apos;individuo Elon_Musk</rdfs:comment>
+        <rdfs:label>phone_Elon_Musk</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2706,6 +3140,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Marco">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone"/>
         <recapitoTelefonico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4534325242</recapitoTelefonico>
+        <rdfs:comment>numero telefonico dell&apos;individuo Marco</rdfs:comment>
+        <rdfs:label>phone_Marco</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2715,6 +3151,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Mark_Zuckerberg">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone"/>
         <recapitoTelefonico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">23434644645</recapitoTelefonico>
+        <rdfs:comment>numero telefonico dell&apos;individuo Mark_Zuckerberg</rdfs:comment>
+        <rdfs:label>phone_Mark_Zuckerberg</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2724,6 +3162,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#phone_Vittoria">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#phone"/>
         <recapitoTelefonico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3345454644</recapitoTelefonico>
+        <rdfs:comment>numero telefonico dell&apos;individuo Vittoria</rdfs:comment>
+        <rdfs:label>phone_Vittoria</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2732,6 +3172,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#retiNeurali">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#RetiNeurali"/>
+        <rdfs:comment>Tipo di settore informatico</rdfs:comment>
+        <rdfs:label>retiNeurali</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2740,6 +3182,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_Chimica">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Chimica"/>
+        <rdfs:comment>tipo di settore</rdfs:comment>
+        <rdfs:label>settore_Chimica</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2748,6 +3192,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_ProduzioneAlimentare">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#ProduzioniAlimentari"/>
+        <rdfs:comment>tipo di settore</rdfs:comment>
+        <rdfs:label>settore_ProduzioneAlimentare</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2756,6 +3202,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_eCommerce">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Ecommerce"/>
+        <rdfs:comment>tipo di settore</rdfs:comment>
+        <rdfs:label>settore_eCommerce</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2764,6 +3212,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_informatica">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Informatico"/>
+        <rdfs:comment>tipo di settore</rdfs:comment>
+        <rdfs:label>settore_informatica</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2772,7 +3222,28 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#studente">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Studente"/>
+        <rdfs:comment>Ruolo lavorativo di un agente</rdfs:comment>
+        <rdfs:label>studente</rdfs:label>
     </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive">
+        <rdfs:label>Automotive</rdfs:label>
+        <rdfs:comment>Settore automotive</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CEO">
+        <rdfs:label>CEO</rdfs:label>
+        <rdfs:comment>CEO di un&apos;azienda</rdfs:comment>
+    </rdf:Description>
     
 
 

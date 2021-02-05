@@ -84,22 +84,32 @@
         <form action="http://localhost/azienda.php?" method="post">
             <label for="settore">Settore:</label>
             <select name="settore" id="settore">
+                <option value="-" >-</option>
                 <option value="informatica" >Informatica</option>
                 <option value="automobilismo">Automobilismo</option>
                 <option value="economico">Economico</option>
                 <option value="agroAlimentare">AgroAlimentare</option>
             </select>
+            <p>Mostrare nome del settore: </p>
+            <input type="radio" id="si" name="nome" value="si">
+            <label for="si">Si</label>
+            <input type="radio" id="no" name="nome" value="no" checked>
+            <label for="no">No</label>
             <br><br>
             <label for="studiUniversitari">Studi universitari:</label>
             <select name="studiUniversitari" id="studiUniversitari">
+                <option value="-" >-</option>
                 <option value="triennale">Laurea Triennale</option>
                 <option value="specialistica">Laurea Specialistica</option>
                 <option value="magistrale">Laurea Magistrale</option>
                 <option value="dottorato">Dottorato</option>
+                <option value="qualsiasi">Qualsiasi</option>
             </select>
+
             <br><br>
             <label for="certificati">Certificati Lingua:</label>
             <select name="certificati" id="certificati">
+                <option value="-" >-</option>
                 <option value="inglese">Ingelse</option>
                 <option value="francese">Francese</option>
                 <option value="spagnolo">Spagnolo</option>
