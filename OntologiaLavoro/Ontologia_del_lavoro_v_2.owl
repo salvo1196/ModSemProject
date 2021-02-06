@@ -2329,6 +2329,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <ePubblicato rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Amazon"/>
         <haCompetenzeRichieste rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_AltreCompetenze"/>
         <frapo:hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Torino</frapo:hasCountry>
+        <benefits>Buoni Pasto, Abbonamento Piscina</benefits>
         <competenzeRichiesteDettagli rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Magazziniere Avanzato</competenzeRichiesteDettagli>
         <descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Si ricerca un magazzienre svelto e audace</descrizione>
         <oreDiLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</oreDiLavoro>
@@ -2347,6 +2348,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <ePubblicato rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Amazon"/>
         <haCompetenzeRichieste rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_Computer"/>
         <frapo:hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Torino</frapo:hasCountry>
+        <benefits>Corso di Yoga</benefits>
         <competenzeRichiesteDettagli rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protege, GraphDB</competenzeRichiesteDettagli>
         <descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Si ricerca un tecnico informatico che sappia usare bene i linked data</descrizione>
         <oreDiLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</oreDiLavoro>
@@ -2386,6 +2388,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <ePubblicato rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Orogel"/>
         <haCompetenzeRichieste rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_tecniche"/>
         <frapo:hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Potenza</frapo:hasCountry>
+        <benefits>Abbonamento palestra, guadagni extra, buoni pasto</benefits>
         <competenzeRichiesteDettagli rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Analista chimico, C2 inglese</competenzeRichiesteDettagli>
         <descrizione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">analisi tecniche dei componenti nutrizionali</descrizione>
         <oreDiLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</oreDiLavoro>
@@ -2404,6 +2407,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <ePubblicato rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_Tesla"/>
         <haCompetenzeRichieste rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#competenza_tecniche"/>
         <frapo:hasCountry>Roma</frapo:hasCountry>
+        <benefits>Buoni pasto</benefits>
         <descrizione>Si propone un lavoro a tempo determinato per la relaizzazione di una nuova vettura della casa automobilistica Tesla</descrizione>
         <oreDiLavoro rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</oreDiLavoro>
         <salarioMensile rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2100.0</salarioMensile>
