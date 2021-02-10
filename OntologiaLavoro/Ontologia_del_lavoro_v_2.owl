@@ -602,6 +602,17 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#descrizioneAzienda -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#descrizioneAzienda">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Descrizione di un&apos;azienda</rdfs:comment>
+        <rdfs:label>descrizioneAzienda</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#email -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#email">
@@ -846,9 +857,15 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <!-- http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl#Agent -->
 
-    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl#Agent">
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl#Agent">
         <owl:equivalentClass rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
-    </rdf:Description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role"/>
     
 
 
@@ -2490,6 +2507,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <haSedePrincipaleIn rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Italia"/>
         <haSedePrincipaleIn rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#USA"/>
         <haSettoreAzienda rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_eCommerce"/>
+        <descrizioneAzienda>azienda di commercio elettronico statunitense, con sede a Seattle nello stato di Washington. È la più grande Internet company al mondo</descrizioneAzienda>
         <numeroSedi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</numeroSedi>
         <rdfs:comment>un&apos;azienda</rdfs:comment>
         <rdfs:label>azienda_Amazon</rdfs:label>
@@ -2503,6 +2521,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
         <haSedePrincipaleIn rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#USA"/>
         <haSettoreAzienda rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_informatica"/>
+        <descrizioneAzienda>azienda multinazionale statunitense che produce sistemi operativi, smartphone, computer e dispositivi multimediali con sede a Cupertino, in California.</descrizioneAzienda>
         <numeroSedi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</numeroSedi>
         <rdfs:comment>un&apos;azienda</rdfs:comment>
         <rdfs:label>azienda_Apple</rdfs:label>
@@ -2514,7 +2533,9 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_InfoTech">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <haSedePrincipaleIn rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Germania"/>
         <haSettoreAzienda rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_informatica"/>
+        <descrizioneAzienda>Azienda per lo sviluppo software, specializzata nella cyber security. Piccola azienda in rapido sviluppo.</descrizioneAzienda>
         <rdfs:comment>un&apos;azienda</rdfs:comment>
         <rdfs:label>azienda_InfoTech</rdfs:label>
     </owl:NamedIndividual>
@@ -2527,6 +2548,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
         <haSedePrincipaleIn rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Italia"/>
         <haSettoreAzienda rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_ProduzioneAlimentare"/>
+        <descrizioneAzienda>Azienda italiana attiva nel settore alimentare fondata a Cesena e con sedi in diverse zone d&apos;Italia.</descrizioneAzienda>
         <numeroSedi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</numeroSedi>
         <rdfs:comment>un&apos;azienda</rdfs:comment>
         <rdfs:label>azienda_Orogel</rdfs:label>
@@ -2538,6 +2560,9 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda_OttoVolante">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
+        <haSedePrincipaleIn rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#USA"/>
+        <haSettoreAzienda rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#settore_ProduzioneAlimentare"/>
+        <descrizioneAzienda>Piccola start up entra nel mondo della produzione alimnetare con un brevetto sul cibo surgelato</descrizioneAzienda>
         <numeroSedi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</numeroSedi>
         <rdfs:comment>un&apos;azienda</rdfs:comment>
         <rdfs:label>azienda_OttoVolante</rdfs:label>
@@ -2551,6 +2576,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
         <haSedePrincipaleIn rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Italia"/>
         <haSettoreAzienda rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive"/>
+        <descrizioneAzienda>azienda statunitense specializzata nella produzione di auto elettriche, pannelli fotovoltaici e sistemi di stoccaggio energetico.</descrizioneAzienda>
         <rdfs:comment>un&apos;azienda</rdfs:comment>
         <rdfs:label>azienda_Tesla</rdfs:label>
     </owl:NamedIndividual>
@@ -2935,8 +2961,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Marco">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
-        <objectrole:hasRole rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#impiegato"/>
         <nome>Developer</nome>
+        <objectrole:hasRole rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#impiegato"/>
         <rdfs:comment>funzioni lavorative occupate dal candidato Marco</rdfs:comment>
         <rdfs:label>funzioniOccupate_Marco</rdfs:label>
     </owl:NamedIndividual>
@@ -3010,6 +3036,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <nome>Marco Dionisio</nome>
         <professione rdf:datatype="http://www.w3.org/2001/XMLSchema#string">impiegato</professione>
         <viveIn>Catania</viveIn>
+        <foaf:firstName>Marco</foaf:firstName>
+        <foaf:surname>Dionisio</foaf:surname>
         <rdfs:comment>info personali dell&apos;individuo Marco</rdfs:comment>
         <rdfs:label>infoPersonali_Marco</rdfs:label>
     </owl:NamedIndividual>

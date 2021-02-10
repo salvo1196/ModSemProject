@@ -19,6 +19,11 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
+            color: #fefff6;
+            background-image: url('imgApplication/linked-data-and-semantics-1024x440.jpeg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
         }
 
         /* Style the header */
@@ -34,8 +39,9 @@
         nav {
             float: left;
             width: 30%;
-            height: 300px; /* only for demonstration, should be removed */
+            height: 380px; /* only for demonstration, should be removed */
             background: #ccc;
+            color: black;
             padding: 20px;
         }
 
@@ -50,7 +56,8 @@
             padding: 20px;
             width: 70%;
             background-color: #f1f1f1;
-            height: 300px; /* only for demonstration, should be removed */
+            height: 380px; /* only for demonstration, should be removed */
+            color: black;
         }
 
         /* Clear floats after the columns */
@@ -110,13 +117,13 @@
         }
         ?>
 
-        <label >Settore:</label> <?php echo $settore_v?>
+        <label><b>Settore:</b></label> <?php echo $settore_v?>
         <br>
-        <label> Mostrare nome del settore: </label> <?php echo $selected_radio ?>
+        <label><b> Mostrare nome del settore: </b></label> <?php echo $selected_radio ?>
         <br>
-        <label>Studi universitari:</label> <?php echo $university?>
+        <label><b>Studi universitari:</b></label> <?php echo $university?>
         <br>
-        <label>Certificati Linguistici:</label> <?php echo $certificate_v?>
+        <label><b>Certificati Linguistici:</b></label> <?php echo $certificate_v?>
 
     </nav>
 
@@ -165,22 +172,41 @@
                 $livelloStudi_h = '-';;
         }
 
+        //Variabili per il controllo del settore nella query 2
+        switch ($sector) {
+            case 'informatica':
+                $sector_query = 'Informatico'; //valore utilizzato  nella query
+                break;
+
+            case '-':
+                $sector_query = 'Settore';
+                break;
+            case 'automobilismo':
+                $sector_query = 'Automobilistico';
+                break;
+            case 'economico':
+                $sector_query = 'Economico';
+                break;
+            case 'agroAlimentare':
+                $sector_query = 'AgroAlimentare';
+        }
+
 
         $query1 = "
           PREFIX : <http://www.semanticweb.org/OntologiaRicercaLavoro#>
           PREFIX foaf: <http://xmlns.com/foaf/0.1/>
           PREFIX frapo: <http://purl.org/cerif/frapo/>
         
-          SELECT ?candidato ?ls ?nomeTitoloDiStudi
+          SELECT ?candidato ?livelloStudi ?nomeTitoloDiStudi
           WHERE {
             ?candidato :possiede ?cv.
             ?cv :contiene ?campi_cv.
-            ?campi_cv :haCampo ?ls.
-            ?ls :nome ?nomeTitoloDiStudi.
+            ?campi_cv :haCampo ?livelloStudi.
+            ?livelloStudi :nome ?nomeTitoloDiStudi.
             
             ?cv rdf:type :CV.
             ?campi_cv rdf:type :Campi_CV.
-            ?ls rdf:type :$livelloStudi.
+            ?livelloStudi rdf:type :$livelloStudi.
             
           }
         
@@ -224,7 +250,7 @@
                 ?campi_cv :haCampo ?studiUniversitari.
                 ?studiUniversitari :nome ?nomeTitoloDiStudi;
                                    :haSettoreStudi ?settoreStudi.
-                ?settoreStudi rdf:type :Informatico.
+                ?settoreStudi rdf:type :$sector_query.
                 ?cv rdf:type :CV.
                 ?campi_cv rdf:type :Campi_CV.
                 ?studiUniversitari rdf:type :StudiUniversitari.   
@@ -258,7 +284,7 @@
             foreach( $rows as $row ) {
                 /*Stampo le sottostinge dell'URI contente solo i nomi*/
                 print "<tr><td>" .substr($row['candidato'], strpos($row['candidato'], "#") + 1)."</td> 
-                             <td>" .substr($row['ls'], strpos($row['ls'], "#") + 1). "</td>
+                             <td>" .substr($row['livelloStudi'], strpos($row['livelloStudi'], "#") + 1). "</td>
                              <td> ".$row['nomeTitoloDiStudi']." </td>
                              </tr>";
                  }
@@ -288,7 +314,7 @@
         }
 
         ////////////////////// QUERY 3: Settore= informatico; nomeSettore=si; university= qualsiasi //////////////////////////
-        else if((strcmp($sector, "informatica") == 0) && (strcmp($certificate, "-") == 0) && (strcmp($university, "qualsiasi")==0) && (strcmp($selected_radio, "si")==0)){
+        else if((strcmp($sector, "$sector") == 0) && (strcmp($certificate, "-") == 0) && (strcmp($university, "qualsiasi")==0) && (strcmp($selected_radio, "si")==0)){
             $rows3 = $store->query($query3, 'rows');
             echo "<table border='1'  class=\"table table-small-font table-sm table-bordered table-striped\" >
                   <thead>
@@ -312,7 +338,14 @@
         }
 
         else {
-            echo "not working";
+            echo "No matching";
+            echo "<table border='1'  class=\"table table-small-font table-sm table-bordered table-striped\" >
+                  <thead>
+                      <th>Candidato</th>
+                      <th>Settore</th>
+                 </thead>
+              </table>";
+
             exit;
         }
 

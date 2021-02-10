@@ -24,9 +24,16 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/imgApplication" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\imgApplication" />
+      <recent name="C:\xampp\htdocs\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\imgApplication" />
     </key>
   </component>
@@ -62,6 +69,17 @@
       <workItem from="1612461980822" duration="14922000" />
       <workItem from="1612544475635" duration="18146000" />
       <workItem from="1612568876811" duration="194000" />
+      <workItem from="1612606993629" duration="11082000" />
+      <workItem from="1612622028138" duration="116000" />
+      <workItem from="1612710245059" duration="1287000" />
+      <workItem from="1612722710859" duration="5333000" />
+      <workItem from="1612805093279" duration="5001000" />
+      <workItem from="1612812281717" duration="5042000" />
+      <workItem from="1612857470022" duration="310000" />
+      <workItem from="1612858182674" duration="6000" />
+      <workItem from="1612896022298" duration="8134000" />
+      <workItem from="1612978532315" duration="13369000" />
+      <workItem from="1612997580821" duration="31000" />
     </task>
     <servers />
   </component>
@@ -73,22 +91,30 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="476" y="2" key="#PHP/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1610796139242" />
-    <state x="604" y="335" key="NewPhpFileDialog" timestamp="1612463352512">
+    <state x="361" y="70" key="#Project_Structure" timestamp="1612808910775">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="335" key="NewPhpFileDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1612463352512" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1612568877737">
+    <state x="361" y="70" key="#Project_Structure/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1612808910775" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1612979471053">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1612568877737" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1612979471053" />
+    <state x="604" y="335" key="NewPhpFileDialog" timestamp="1612986138709">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="604" y="335" key="NewPhpFileDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1612986138709" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1612997582557">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1612997582557" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1612391757463" />
     <state x="462" y="17" width="611" height="789" key="find.popup" timestamp="1612200883605">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="462" y="17" width="611" height="789" key="find.popup/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1612200883605" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1612562981959">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1612985863263">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1612562981959" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1612985863263" />
   </component>
 </project>

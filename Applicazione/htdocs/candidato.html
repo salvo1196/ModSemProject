@@ -5,12 +5,52 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+        /* Style the search field */
+        form.queryFederata input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+        }
+
+        /* Style the submit button */
+        form.queryFederata button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none; /* Prevent double borders */
+            cursor: pointer;
+        }
+
+        form.queryFederata button:hover {
+            background: #0b7dda;
+        }
+
+        /* Clear floats */
+        form.queryFederata::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+
         * {
             box-sizing: border-box;
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
+            color: #fefff6;
+            background-image: url('imgApplication/linked-data-and-semantics-1024x440.jpeg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
         }
 
         /* Style the header */
@@ -26,9 +66,10 @@
         nav {
             float: left;
             width: 30%;
-            height: 300px; /* only for demonstration, should be removed */
+            height: 380px; /* only for demonstration, should be removed */
             background: #ccc;
             padding: 20px;
+            color: black;
         }
 
         /* Style the list inside the menu */
@@ -42,7 +83,8 @@
             padding: 20px;
             width: 70%;
             background-color: #f1f1f1;
-            height: 300px; /* only for demonstration, should be removed */
+            height: 380px; /* only for demonstration, should be removed */
+            color: black;
         }
 
         /* Clear floats after the columns */
@@ -97,7 +139,7 @@
         </script>
 
         <form action="http://localhost/candidato.php?" method="post">
-            <label for="settore">Settore:</label>
+            <label for="settore"><b>Settore:</b></label>
             <select name="settore" id="settore">
                 <option value="-" >-</option>
                 <option value="informatica" >Informatica</option>
@@ -106,11 +148,21 @@
                 <option value="agroAlimentare">AgroAlimentare</option>
             </select>
             <br><br>
-            <input type="button" name="add" onclick="myFunction()" value="Aggiungi competenze" >
+            <label for="compGenerali"><b>Competenze:</b></label>
+            <select name="compGenerali" id="compGenerali">
+                <option value="-" >-</option>
+                <option value="Computer" >Computer</option>
+                <option value="Artistica">Artistiche</option>
+                <option value="Organizzazione">Organizzative</option>
+                <option value="Sociale">Sociali</option>
+                <option value="AltreCompetenze">Altre competenze</option>
+            </select>
+            <br><br>
+            <input type="button" name="add" onclick="myFunction()" value="Aggiungi Conoscenze" >
             <br>
-            <label for="competenze"  id="labelCompetenze" style="display: none">Competenze candidato: </label><textarea name="competenze" rows="3" cols="30" id="competenze" style="display: none" placeholder="Scrivi le tue competenze separate da una virgola..." ></textarea>
+            <label for="competenze"  id="labelCompetenze" style="display: none"><b>Conoscenze candidato:</b> </label><textarea name="competenze" rows="3" cols="30" id="competenze" style="display: none" placeholder="Scrivi le tue competenze separate da una virgola..." ></textarea>
             <br>
-            <label for="salario">Salario mensile:</label>
+            <label for="salario"><b>Salario mensile:</b></label>
             <select name="salario" id="salario">
                 <option value="-">-</option>
                 <option value="qualsiasi">Qualsiasi</option>
@@ -120,21 +172,41 @@
                 <option value="2900"> &gt; 2000</option>
             </select>
             <br><br>
-            <label>Possiedi un dottorato: </label>
+            <label><b>Possiedi un dottorato:</b> </label>
             <input type="radio" id="si" name="nome" value="si">
             <label for="si" >Si</label>
             <input type="radio" id="no" name="nome" value="no" checked>
             <label for="no">No</label>
             <br><br>
-
-            <br><br>
-            <input type="submit" value="Submit">
+            <label for="citta"><b>Città:</b></label>
+            <select name="citta" id="citta" >
+                <option value="-" >-</option>
+                <option value="Milano" >Milano</option>
+                <option value="Torino">Torino</option>
+                <option value="Potenza">Potenza</option>
+                <option value="Roma">Roma</option>
+                <option value="Catania">Catania</option>
+                <option value="NY">NY</option>
+                <option value="Madrid">Madrid</option>
+                <option value="Bari">Bari</option>
+            </select>
+            <br>
+            <br>
+            <input type="submit" value="Cerca">
 
         </form>
 
     </nav>
     <article>
+        <div>
+            <h2>Query Federata</h2>
+            <h4>Inserisci un paese per vedere tutte le aziende presenti in dbpedia e JSO locate in quel paese.</h4>
+        </div>
+        <form class="queryFederata" action="http://localhost/federataAzienda.php?" method="post"  style="margin:auto;max-width:300px">
 
+            <input type="text" placeholder="Search.." name="search" id="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
     </article>
 </section>
 
