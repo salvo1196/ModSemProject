@@ -87,11 +87,10 @@
 </head>
 <body>
 
-<h2>Azienda cerca lavoratore</h2>
-<p>Recluta qualcuno nella tua azienda e rendilo tuo schiavo</p>
+<h2>Job Search Ontology</h2>
 
 <header>
-    <h4>Scegli i parametri necessari ha trovare il tuo candidato ideale</h4>
+    <h4>Lista Annunci</h4>
 </header>
 
 <section>
