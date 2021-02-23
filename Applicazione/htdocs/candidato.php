@@ -1,3 +1,7 @@
+<!-- Tale file implementa le query poste dal candidato al sistema per andare
+alla ricerca degli annunci ad esso più consoni, attraverso i parametri specificati
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,27 +100,27 @@
 <section>
     <nav>
         <?php
-        $sector= isset($_POST['settore']) ? $_POST['settore'] : false;
-        $comGenerali= $_POST['compGenerali'];
-        $competenze= $_POST['competenze'];
-        $salario = $_POST['salario'];
-        $selected_radio = $_POST['nome'];
-        $citta= $_POST['citta'];
-
-
-
+        /*
+        * vengono recuperati i valori selezionati nella pagina "azienda.html"
+        */
+        $sector= isset($_POST['settore']) ? $_POST['settore'] : false; //campo settore
+        $comGenerali= $_POST['compGenerali']; // campo Competenze generali
+        $competenze= $_POST['competenze'];  // campo Competenze e conoscenze dell'utente
+        $salario = $_POST['salario'];  //campo salario
+        $selected_radio = $_POST['nome']; // campo dottorato
+        $citta= $_POST['citta']; // campo città
 
         if ($sector) {
             $settore_v = htmlentities($_POST['settore'], ENT_QUOTES, "UTF-8");
-
-
         }
+
         else {
             echo "task option is required";
             exit;
         }
         ?>
 
+        <!-- Stampa del valore selezionato per ogni campo -->
         <label ><b>Settore:</b></label> <?php echo $sector?>
         <br>
         <label ><b>Competenze:</b></label> <?php echo $comGenerali?>
@@ -134,33 +138,27 @@
     <article>
         <?php
         /* ARC2 static class inclusion */
-        //include_once('semsol/ARC2.php');
         include_once('semsol-arc2-586f303/ARC2.php');
-        //require 'vendor/autoload.php';
 
-        /* $dbpconfig = array(
-        "remote_store_endpoint" => "http://dbpedia.org/sparql",
-         );
-          */
-        $dbpconfig = array(
+        $jsoconfig = array(
             "remote_store_endpoint" => "http://192.168.184.1:7200/repositories/JobSearchOntology",
         );
 
-        $store = ARC2::getRemoteStore($dbpconfig);
+        $store = ARC2::getRemoteStore($jsoconfig);
 
         if ($errs = $store->getErrors()) {
             echo "<h1>getRemoteSotre error<h1>" ;
         }
 
-        //////divide la stringa in base allo spazio e inserisci i vari token in un array
-        //$subStringcomp = explode(" ", $competenze);
 
-        //Variabili per il controllo del settore nella query 2
+        /*
+         * Switch necessario per allineare i valori di Sector selezionati dalla Web Application
+         * con i valori presenti nell'ontologia.
+         */
         switch ($sector) {
             case 'informatica':
                 $sector_query = 'Informatico'; //valore utilizzato  nella query
                 break;
-
             case '-':
                 $sector_query = 'Settore';
                 break;
@@ -174,6 +172,9 @@
                 $sector_query = 'AgroAlimentare';
         }
 
+        /*
+         * La seguente query permette al candidato di vedere nella bacheca tutte le aziendeche hanno pubblicato degli annunci.
+         */
         $query1 = "
           PREFIX : <http://www.semanticweb.org/OntologiaRicercaLavoro#>
           PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -187,6 +188,10 @@
           ";
 
 
+        /*
+         *La  seguente  query  trova  tutte  le  aziende  che  hanno  pubblicato  un  annuncio
+         * avente un salario mensile compreso nel range indicato e come competenze richieste le conoscenze scritte dall'utente
+         */
         $query2 = "
           PREFIX : <http://www.semanticweb.org/OntologiaRicercaLavoro#>
           PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -207,6 +212,9 @@
             }
           ";
 
+        /*
+         * Piccola variante della query due dove non è necessaio andare ad inserire il salario
+         */
         $query22 = "
           PREFIX : <http://www.semanticweb.org/OntologiaRicercaLavoro#>
           PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -226,7 +234,11 @@
             }
           ";
 
-        ////// è stata ppartata qualche modifica rispetto alla query originaria n7 del file word // vengono mostrati gli stessi risultati della query11 ma solo per i "dottorati"
+
+        /*
+         * Se si è ricercatori (candidato di tipo ”candidato ricercatore”), vengono trovati tutti gli annunci con le relative aziende
+         * che hanno lo stesso settore del candidato ricercatore.
+         */
         $query3 = "
           PREFIX : <http://www.semanticweb.org/OntologiaRicercaLavoro#>
           PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -249,7 +261,9 @@
                 }
           ";
 
-        ////////////mi ritorna tutta gli annunci che hanno il settore da me scelto
+        /*
+         * Trova tutti gli annunci riguardanti il settore scelto dal candidato
+         */
         $query33 = "
           PREFIX : <http://www.semanticweb.org/OntologiaRicercaLavoro#>
           PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -267,7 +281,16 @@
                 }
           ";
 
+///////////////////////////////////////////
+        ///
+        ///
+        ///  SIAMO ARRIVATI QUIIIIIIIIIIIIIIII
+        //////////////////////
 
+        /*
+         * Restituisce l'annuncio, la sua descrizone, il contratto proposto e le ore giornaliere per tutti gli annunci che si trovano
+         * nella città scelta dell'utente con il settore richiesto
+         */
         $query4= "
           PREFIX : <http://www.semanticweb.org/OntologiaRicercaLavoro#>
           PREFIX foaf: <http://xmlns.com/foaf/0.1/>

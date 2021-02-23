@@ -1,3 +1,7 @@
+<!-- Questo file implementa la query  federata permettendo di   estrarre  da  DBpedia  le  prime  3  persone, con  la  relativa  data  di  nascita,
+  che  lavorano  nel  campo  ”Computer”  (quindiun  campo  del  settore  informatico  dell’ontologia  da  noi  sviluppata).
+  Il risultato della query verso endpoint di DBpedia viene unito con il risultato della query ottenuto dall'ontologia JSO (da noi implementata)
+  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +13,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-    <title>Federata Azienda</title>
+    <title>FederataCandidato</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -89,14 +93,11 @@
 
 <h2>Job Search Onotology</h2>
 
-
 <header>
-    <h4>Query Federata Azienda</h4>
+    <h4>Query Federata Candidato</h4>
 </header>
 
 <section>
-
-
 
 
     <article>
@@ -104,23 +105,18 @@
         /* ARC2 static class inclusion */
         include_once('semsol/ARC2.php');
 
-        /*$dbpconfig2 = array(
-       "remote_store_endpoint" => "http://dbpedia.org/sparql",
-        );
-         */
+
         $dbpconfig = array(
-            //"remote_store_endpoint" => "http://192.168.184.1:7200/repositories/JobSearchOntology",
             "remote_store_endpoint" => "https://dbpedia.org/sparql",
         );
 
-        $dbpconfig2 = array(
+        $jsoconfig = array(
             "remote_store_endpoint" => "http://192.168.184.1:7200/repositories/JobSearchOntology",
-            //"remote_store_endpoint" => "https://dbpedia.org/sparql",
         );
 
         $store = ARC2::getRemoteStore($dbpconfig);
 
-        $store2 = ARC2::getRemoteStore($dbpconfig2);
+        $store2 = ARC2::getRemoteStore($jsoconfig);
 
         if ($errs = $store->getErrors()) {
             echo "<h1>getRemoteSotre error<h1>" ;
@@ -130,58 +126,61 @@
             echo "<h1>getRemoteSotre error<h1>" ;
         }
 
-        $search = $_POST['search'];
 
-        switch ($search) {
-            case 'Italia':
-                $search_dbo = 'Italy'; //valore utilizzato  nella query
-                break;
-
-            case 'Francia':
-                $search_dbo = 'France';
-                break;
-            case 'Germania':
-                $search_dbo = 'Germany';
-                break;
-            case 'USA':
-                $search_dbo = 'United_State';
-        }
-
-        $query1 = "
+/*
+ * Query che permette  di  estrarre  da  DBpedia  le  prime  3  persone, con  la  relativa
+ *  data  di  nascita,  che  lavorano  nel  campo  ”Computer”  (quindiun  campo  del
+ * settore  informatico  dell’ontologia  da  noi  sviluppata)
+ */
+$query1 = "
         PREFIX dbo: <http://dbpedia.org/ontology/> 
         PREFIX dbr: <http://dbpedia.org/resource/> 
-        PREFIX dbt: <http://dbpedia.org/resource/Template/>
-        PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+        PREFIX db: <http://dbpedia.org/resource/>
+        PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+        PREFIX : <http://www.semanticweb.org/OntologiaRicercaLavoro#>
+        PREFIX frapo: <http://purl.org/cerif/frapo/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         
-        SELECT distinct ?impresa ?country ?description
-        WHERE {
-             
-               ?impresa a dbo:Company .
-               ?impresa dbo:country ?country.
-               ?impresa foaf:name ?name .
-               ?impresa dbo:abstract ?description.
-                FILTER( langMatches(lang(?description),'it') ).
-                FILTER regex(str(?country), '$search_dbo').
-        
-        } LIMIT 3
-        ";
-
+        SELECT distinct ?name  ?birth 
+        WHERE{
+  				?p a dbo:Person .
+                ?p dbo:knownFor ?knownFor.
+                ?p dbo:occupation ?occupation.
+                ?p foaf:name ?name .
+                ?p dbo:birthDate ?birth.
+                FILTER regex(str(?occupation), 'Computer')
+                FILTER (langMatches(lang(?name), 'en'))
+               }
+        LIMIT 3
+          ";
+/*
+ * Query verso l'endpoint JSO la quale ritorna tutti i candidati con la relativa data di nascita che lavorano
+ *  nel settore informatico
+ */
         $query2 ="
         PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
         PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         PREFIX : <http://www.semanticweb.org/OntologiaRicercaLavoro#>
         PREFIX frapo: <http://purl.org/cerif/frapo/>
         
-        SELECT ?azienda ?sede ?descrizione
+        SELECT distinct ?candidato ?nascita
         WHERE
         {    
-              ?azienda :pubblica ?annuncio;
-                               :haSedePrincipaleIn  ?sede;
-                               :descrizioneAzienda ?descrizione.
+             ?candidato :possiede ?cv.
+             ?cv :contiene ?campi_cv.
+             ?campi_cv :haCampo ?infoPersonali.
+             ?infoPersonali foaf:firstName ?firstName;
+                           foaf:surname ?surname;
+                           :dataNascita ?nascita.
+                           
+              ?candidato :haSettoreDiInteresse ?settore.
               
-              FILTER regex(str(?sede), '$search').
-               
-               ?azienda rdf:type :Azienda.
+              ?cv rdf:type :CV.
+              ?campi_cv rdf:type :Campi_CV.
+              ?infoPersonali rdf:type :InfoPersonali.
+              ?settore rdf:type :Informatico.
+              ?candidato rdf:type :Candidato.  
             } 
 
         ";
@@ -192,56 +191,37 @@
         */
         $rows = $store->query($query1, 'rows');
 
-        /* display the results in an HTML table */
-        echo "<table border='1'  class=\"table table-small-font table-sm table-bordered table-striped\" >
+        /* Mostra i risultati in una tabella HTML */
+      echo "<table border='1'  class=\"table table-small-font table-sm table-bordered table-striped\" >
                   <thead>
-                      <th>Azienda</th>
-                      <th>Sede</th>
-                      <th>Descrizione</th>
+                      <th>Name</th>
+                      <th>Data di nascita</th>
 
                   </thead>";
 
-        /* loop for each returned row */
+        /* loop per ogni riga ritornata */
         foreach( $rows as $row ) {
-            /*Stampo le sottostinge dell'URI contente solo i nomi*/
-            print "<tr><td> ".substr($row['impresa'], strpos($row['impresa'], "e/") + 2)." </td>
-                        <td> ".substr($row['country'], strpos($row['country'], "e/") + 2)." </td>
-                        <td> ".$row['description']." </td>
-
+            print "<tr><td> ".$row['name']." </td>
+                        <td> ".$row['birth']." </td>
                     </tr>
                     ";
         }
 
+        //esecuzione della query nella JSO ontology
         $rows2 = $store2->query($query2, 'rows');
-        foreach( $rows2 as $row2 ) {
-            /*Stampo le sottostinge dell'URI contente solo i nomi*/
-            print "<tr><td> ".substr($row2['azienda'], strpos($row2['azienda'], "#") + 1)." </td>
-                        <td> ".substr($row2['sede'], strpos($row2['sede'], "#") + 1)." </td>
-                            <td> ".$row2['descrizione']." </td>
-                             </tr>";
-        }
+            foreach( $rows2 as $row2 ) {
+                /*Stampo le sottostinge dell'URI contente solo i nomi*/
+                print "<tr><td> ".substr($row2['candidato'], strpos($row2['candidato'], "#") + 1)." </td>
+                           <td> ".$row2['nascita']." </td>
+                           </tr>";
+            }
 
         echo "</table>";
-
-
-
-
-
-
-        /////////////////////////////////////
-
-        /* execute the query */
-        //$rows = $store->query($query, 'rows');
-
 
         if ($errs = $store->getErrors()) {
             echo "Query errors" ;
             print_r($errs);
         }
-
-
-
-
 
         ?>
 

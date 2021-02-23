@@ -1,3 +1,7 @@
+<!--
+Il file "HomePage.html" definisce gli obiettivi della JSO (Job Search Ontology) ed implementa l'interfaccia web della Web Application
+che permette di scegliere se eseguire query lato Candidato (cerca informazioni riguardanti i vari annunci)  o lato Azienda (cerca informaioni riguardanti i candidati)
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,24 +32,6 @@
             font-size: 35px;
             color: white;
         }
-
-        /* Create two columns/boxes that floats next to each other */
-        /*
-        nav {*/
-        /*    float: left;*/
-        /*    width: 30%;*/
-        /*    height: 300px; !* only for demonstration, should be removed *!*/
-        /*    background: #ccc;*/
-        /*    padding: 20px;*/
-        /*}*/
-
-        /*!* Style the list inside the menu *!*/
-        /*nav ul {*/
-        /*    list-style-type: none;*/
-        /*    padding: 0;*/
-        /*}
-
-        */
 
         article {
             /*float: left;*/
@@ -110,12 +96,12 @@
     <article>
         <a href="http://localhost/candidato.html?">
             <figure>
-                <img src='imgApplication/cv.png' alt='missing' width="80" height="80"/>
+                <img src='imgApplication/cv.png' alt='missing' width="80" height="80"/> <!-- reindirizza nella pagina candidato.html  -->
                 <figcaption>Candidato</figcaption>
             </figure>
         </a>
 
-        <a href="http://localhost:63342/htdocs/azienda.html?_ijt=buebprbgtj8her1l7tt9skamru" target="_blank">
+        <a href="http://localhost:63342/htdocs/azienda.html?_ijt=buebprbgtj8her1l7tt9skamru" target="_blank"> <!-- reindirizza nella pagina azienza.html  -->
             <figure>
                 <img src='imgApplication/enterprise.png' alt='missing' width="80" height="80"/>
                 <figcaption>Azienda</figcaption>

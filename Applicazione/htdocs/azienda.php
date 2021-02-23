@@ -1,3 +1,5 @@
+<!-- Azienda.php definisce ed implementa la logica applicata alle query, eseguite attraverso l'endpoint di GraphDB-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,19 +98,19 @@
 <section>
     <nav>
         <?php
-        $sector= isset($_POST['settore']) ? $_POST['settore'] : false;
-        $university= isset($_POST['studiUniversitari']) ? $_POST['studiUniversitari'] : false;
-        $certificate= isset($_POST['certificati']) ? $_POST['certificati'] : false;
-        $selected_radio = $_POST['nome'];
-
-
+        /*
+         * vengono recuperati i valori selezionati nella pagina "azienda.html"
+         */
+        $sector= isset($_POST['settore']) ? $_POST['settore'] : false;  //campo settore
+        $university= isset($_POST['studiUniversitari']) ? $_POST['studiUniversitari'] : false; //campo università
+        $certificate= isset($_POST['certificati']) ? $_POST['certificati'] : false; //campo certificato
+        $selected_radio = $_POST['nome']; //valore del radio button selezionato. Se "SI" mostra il nome del settore, se "NO" altrimenti
 
 
         if ($sector && $university && $certificate && $selected_radio) {
             $settore_v = htmlentities($_POST['settore'], ENT_QUOTES, "UTF-8");
             $university_v = htmlentities($_POST['studiUniversitari'], ENT_QUOTES, "UTF-8");
             $certificate_v = htmlentities($_POST['certificati'], ENT_QUOTES, "UTF-8");
-
         }
         else {
             echo "task option is required";
@@ -116,6 +118,7 @@
         }
         ?>
 
+        <!-- Stampa del valore selezionato per ogni campo -->
         <label><b>Settore:</b></label> <?php echo $settore_v?>
         <br>
         <label><b> Mostrare nome del settore: </b></label> <?php echo $selected_radio ?>
@@ -133,25 +136,26 @@
         /* ARC2 static class inclusion */
         include_once('semsol/ARC2.php');
 
-        /* $dbpconfig = array(
-        "remote_store_endpoint" => "http://dbpedia.org/sparql",
-         );
-          */
-        $dbpconfig = array(
+        // endpoint dell'ontologia JSO
+        $jsoconfig = array(
             "remote_store_endpoint" => "http://192.168.184.1:7200/repositories/JobSearchOntology",
         );
 
-        $store = ARC2::getRemoteStore($dbpconfig);
+        $store = ARC2::getRemoteStore($jsoconfig);
 
         if ($errs = $store->getErrors()) {
             echo "<h1>getRemoteSotre error<h1>" ;
         }
 
 
+        /*
+         * Switch necessario per allineare i valori di University selezionati dalla Web Application
+         * con i valori presenti nell'ontologia.
+         */
         switch ($university) {
             case 'triennale':
-                $livelloStudi = 'LaureaTriennale'; //valore utilizzato  nella query
-                $livelloStudi_h = 'Laurea Triennale'; //header tabella
+                $livelloStudi = 'LaureaTriennale'; // valore utilizzato  nella query
+                $livelloStudi_h = 'Laurea Triennale'; // header della tabella
                 break;
 
             case 'magistrale':
@@ -171,7 +175,10 @@
                 $livelloStudi_h = '-';;
         }
 
-        //Variabili per il controllo del settore nella query 2
+        /*
+         * Switch necessario per allineare i valori di Sector selezionati dalla Web Application
+         * con i valori presenti nell'ontologia.
+         */
         switch ($sector) {
             case 'informatica':
                 $sector_query = 'Informatico'; //valore utilizzato  nella query
@@ -191,6 +198,10 @@
         }
 
 
+        /*
+         * La seguente query viene utilizzata dalle aziende per  visualizzare i candidati con il titolo di studi specificato,
+         * andando a trovare nell’ontologia tutti i candidati che hanno il titolo di studi richiesto (es: Laurea Specialistica)
+         */
         $query1 = "
           PREFIX : <http://www.semanticweb.org/OntologiaRicercaLavoro#>
           PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -205,13 +216,14 @@
             
             ?cv rdf:type :CV.
             ?campi_cv rdf:type :Campi_CV.
-            ?livelloStudi rdf:type :$livelloStudi.
-            
+            ?livelloStudi rdf:type :$livelloStudi.   
           }
-        
           ";
 
-
+        /*
+         * La query permette di cercare tutti i lavoratori che hanno almeno un titolo distudi  universitario
+         *   e  che  posseggono  un  certificato  di  inglese,  ordinandoli  dal livello più alto al livello più basso
+         */
         $query2= "
         PREFIX : <http://www.semanticweb.org/OntologiaRicercaLavoro#>
         PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -237,6 +249,10 @@
           ORDER BY DESC(?tipoCertificato)
         ";
 
+
+        /*
+         *  La query cerca tutti i candidati nel settore selezionato con i relativi percorsi di studi.
+         */
         $query3= "
         PREFIX : <http://www.semanticweb.org/OntologiaRicercaLavoro#>
         PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -259,18 +275,14 @@
         ";
 
 
-        ////////////////////////////////
-        $sector= isset($_POST['settore']) ? $_POST['settore'] : false;
-        $university= isset($_POST['studiUniversitari']) ? $_POST['studiUniversitari'] : false;
-        $certificate= isset($_POST['certificati']) ? $_POST['certificati'] : false;
-
-        ////////////////////// QUERY 1: Basta selezionare Studi universitari //////////////////////////
+        /*
+         ***** Esecuzione QUERY 1
+         */
         if ((strcmp($university, $university_v)==0) && (strcmp($selected_radio, "no")==0) && (strcmp($certificate, "-")==0) && (strcmp($sector, "-")==0))  {
 
             $rows = $store->query($query1, 'rows');
 
-
-            /* display the results in an HTML table */
+            /* Mostra i risultati in una tabella HTML */
             echo "<table border='1'  class=\"table table-small-font table-sm table-bordered table-striped\" >
                   <thead>
                       <th>Candidato</th>
@@ -278,10 +290,9 @@
                       <th> Corso di Studi </th>
                   </thead>";
 
-
-            /* loop for each returned row */
+            /* loop per ogni riga ritornata */
             foreach( $rows as $row ) {
-                /*Stampo le sottostinge dell'URI contente solo i nomi*/
+                /*Stampo le sottostringe dell'URI contente solo i nomi*/
                 print "<tr><td>" .substr($row['candidato'], strpos($row['candidato'], "#") + 1)."</td> 
                              <td>" .substr($row['livelloStudi'], strpos($row['livelloStudi'], "#") + 1). "</td>
                              <td> ".$row['nomeTitoloDiStudi']." </td>
@@ -291,10 +302,14 @@
 
 
         }
-        //else if((strcmp($sector, "informatica") == 0) &&  (strcmp($university, "qualsiasi")==0) && (strcmp($selected_radio, "si")==0) ){
-        ////////////////////// QUERY 2: Basta selezionare il certificato //////////////////////////
+        /*
+         ******* Esecuzione QUERY 2
+         */
         else if((strcmp($certificate, $certificate_v) == 0) && (strcmp($university, "-")==0) && (strcmp($selected_radio, "no")==0)  && (strcmp($sector, "-")==0) ){
+
             $rows2 = $store->query($query2, 'rows');
+
+            /* Mostra i risultati in una tabella HTML */
             echo "<table border='1'  class=\"table table-small-font table-sm table-bordered table-striped\" >
                   <thead>
                       <th>Candidato</th>
@@ -302,7 +317,7 @@
                  </thead>";
 
 
-            /* loop for each returned row */
+            /* loop per ogni riga ritornata */
             foreach( $rows2 as $row ) {
                 /*Stampo le sottostinge dell'URI contente solo i nomi*/
                 print "<tr><td>" .substr($row['candidato'], strpos($row['candidato'], "#") + 1)."</td>
@@ -312,9 +327,14 @@
             echo "</table>";
         }
 
-        ////////////////////// QUERY 3: Settore= informatico; nomeSettore=si; university= qualsiasi //////////////////////////
+        /*
+         ****** QUERY 3
+         */
         else if((strcmp($sector, "$sector") == 0) && (strcmp($certificate, "-") == 0) && (strcmp($university, "qualsiasi")==0) && (strcmp($selected_radio, "si")==0)){
+
             $rows3 = $store->query($query3, 'rows');
+
+            /* Mostra i risultati in una tabella HTML */
             echo "<table border='1'  class=\"table table-small-font table-sm table-bordered table-striped\" >
                   <thead>
                       <th>Candidato</th>
@@ -323,9 +343,9 @@
                       <th>Corso di studi</th>
                  </thead>";
 
-            /* loop for each returned row */
+            /* loop per ogni riga ritornata */
             foreach( $rows3 as $row ) {
-                /*Stampo le sottostinge dell'URI contente solo i nomi*/
+                /*Stampo le sottostringe dell'URI contente solo i nomi*/
                 print "<tr><td>" .substr($row['candidato'], strpos($row['candidato'], "#") + 1)."</td>
                              <td>".substr($row['settoreStudi'], strpos($row['settoreStudi'], "#") + 1)."</td>
                              <td>".substr($row['studiUniversitari'], strpos($row['studiUniversitari'], "#") + 1)."</td>
@@ -348,21 +368,12 @@
             exit;
         }
 
-
-        /////////////////////////////////////
-
         /* execute the query */
-        //$rows = $store->query($query, 'rows');
-
 
         if ($errs = $store->getErrors()) {
             echo "Query errors" ;
             print_r($errs);
         }
-
-
-
-
 
         ?>
 
