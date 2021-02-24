@@ -3269,8 +3269,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
      -->
 
     <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Automotive">
-        <rdfs:label xml:lang="it">Automotive</rdfs:label>
         <rdfs:comment xml:lang="it">Settore automotive</rdfs:comment>
+        <rdfs:label xml:lang="it">Automotive</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CEO">
         <rdfs:label xml:lang="it">CEO</rdfs:label>
@@ -3751,7 +3751,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#annuncioConsigliato"/>
                         <swrl:argument1 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#candidato"/>
-                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#azienda"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#annuncio"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>

@@ -281,11 +281,6 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
                 }
           ";
 
-///////////////////////////////////////////
-        ///
-        ///
-        ///  SIAMO ARRIVATI QUIIIIIIIIIIIIIIII
-        //////////////////////
 
         /*
          * Restituisce l'annuncio, la sua descrizone, il contratto proposto e le ore giornaliere per tutti gli annunci che si trovano
@@ -323,6 +318,10 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
                 }
         ";
 
+        /*
+         * Trova l’annuncio con il salario più alto che abbia un monte ore compreso tra le 6 e 8 e che
+         *  abbia come competenze richieste quelle scelte dall'utente e come settore il settore selezionato dall'utente.
+         */
         $query5= "
           PREFIX : <http://www.semanticweb.org/OntologiaRicercaLavoro#>
           PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -344,23 +343,22 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
         ";
 
 
-        ////////////////////////////////
-        $sector= isset($_POST['settore']) ? $_POST['settore'] : false;
+        /*
+         ******* Esecuzione QUERY 1
+         * Ritorna la lista di tutti gli annunci con le relative aziende
+         */
 
-        ////////////////////// QUERY 1: sector= - ; salario=-  //////////////////////////
-        /*  Ritorna la lista di tutti gli annunci con le relative aziende  */
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         if ((strcmp($sector, "-")==0) && (strcmp($salario, "-")==0) && (strcmp($selected_radio, "no")==0) && (strcmp($citta, "-")==0) && (strcmp($comGenerali, "-")==0))  {
-            echo 1;
+
             $rows = $store->query($query1, 'rows');
-            /* display the results in an HTML table */
+            /* Mostra i risultati in una tabella HTML */
             echo "<table border='1'  class=\"table table-small-font table-sm table-bordered table-striped\" >
                   <thead>
                       <th>Azienda</th>
                       <th>Annuncio</th>
                   </thead>";
 
-            /* loop for each returned row */
+            /* loop per ogni riga ritornata */
             foreach( $rows as $row ) {
                 /*Stampo le sottostinge dell'URI contente solo i nomi*/
                 print "<tr><td>" .substr($row['azienda'], strpos($row['azienda'], "_") + 1)."</td> 
@@ -372,12 +370,14 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
         }
 
 
-        ////////////////////// QUERY 22: sector != - ; salario=qualsiasi  E volendo posso scrivere qualsiasi cosa nelle competenze//////////////////////////
-        /* Ritorna la lista degli annuncio in base al settore scelto e le competenze scritte.
-        Quindi bisogna sempre settare il settore, cliccare sul bottone aggiungi competente e scrivere qualcosa */
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /*
+        ******* Esecuzione QUERY 22:
+        * Ritorna la lista di tutti gli annunci con le relative aziende
+        * Ritorna la lista degli annuncio in base al settore scelto e le competenze scritte.
+        */
+
         else if ((strcmp($sector, "-")!=0)  && (strcmp($salario, "-")==0) && (strcmp($selected_radio, "no")==0) && (strcmp($citta, "-")==0) && (strcmp($comGenerali, "-")==0) ){
-            echo 2;
+
             $rows = $store->query($query22, 'rows');
             /* display the results in an HTML table */
             echo "<table border='1'  class=\"table table-small-font table-sm table-bordered table-striped\" >
@@ -391,7 +391,7 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
 
             /* loop for each returned row */
             foreach( $rows as $row ) {
-                /*Stampo le sottostinge dell'URI contente solo i nomi*/
+                /*Stampo le sottostringe dell'URI contente solo i nomi*/
                 print "<tr><td>" .substr($row['azienda'], strpos($row['azienda'], "_") + 1)."</td> 
                              <td>" .substr($row['annuncio'], strpos($row['annuncio'], "#") + 1). "</td>
                              <td> ".$row['competenzeRichiesteDettagli']." </td>
@@ -402,13 +402,11 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
             echo "</table>";
         }
 
-        ////////////////////// QUERY 2 //////////////////////////
-        /* Ritorna la lista degli annuncio in base al "settore scelto", le $competenze scritte$ e il "salario indicato"
-        NOTA: che volendo posso anche solo inserire il settore e il salario, ma si deve stare attenti che la text di competende deve essere vuota
-        NOTA: ricordarsi che il salario deve avere un valore ben definito */
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /*
+        ******* Esecuzione QUERY 2:
+        * Ritorna la lista degli annuncio in base al "settore scelto", le $competenze scritte$ e il "salario indicato
+        */
         else if ((strcmp($sector, "$sector")==0) && (strcmp($selected_radio, "no")==0) &&  (strcmp($salario, "-")!=0) && (strcmp($salario, "qualsiasi")!=0)  && (strcmp($comGenerali, "-")==0) ){
-            echo 3;
             $rows = $store->query($query2, 'rows');
             /* display the results in an HTML table */
             echo "<table border='1'  class=\"table table-small-font table-sm table-bordered table-striped\" >
@@ -418,7 +416,6 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
                       <th>Competenze richieste</th>
                       <th>Salario</th>
                   </thead>";
-
 
             /* loop for each returned row */
             foreach( $rows as $row ) {
@@ -432,12 +429,14 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
             echo "</table>";
         }
 
-        ////////////////////// QUERY 3 //////////////////////////
-        /*Ritorna la lista degli annunci solo se è stato scelto un settore d'interesse e si è DOTTORATI (SI)
-        NOTA: ricordarci di settare il salario a QUALSIASI (non per ragioni interne alla query, ma per non fare sovrapporre la query 3 con la 2)*/
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /*
+         ****** QUERY 3
+         * Ritorna la lista degli annunci solo se è stato scelto un settore d'interesse e si è DOTTORATI (SI)
+         * NOTA: ricordarci di settare il salario a QUALSIASI (non per ragioni interne alla query, ma per non fare sovrapporre la query 3 con la 2)
+         */
+
         else if ((strcmp($sector, "$sector")==0) && (strcmp($selected_radio, "si")==0) && (strcmp($salario, "qualsiasi")==0) && (strcmp($comGenerali, "-")==0) ){
-            echo 4;
+
             $rows = $store->query($query3, 'rows');
             /* display the results in an HTML table */
             echo "<table border='1'  class=\"table table-small-font table-sm table-bordered table-striped\" >
@@ -446,7 +445,6 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
                       <th>Annuncio</th>
                       <th>Contratto Proposto</th>
                   </thead>";
-
 
             /* loop for each returned row */
             foreach( $rows as $row ) {
@@ -459,12 +457,12 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
             echo "</table>";
         }
 
-        ////////////////////// QUERY 33 //////////////////////////
-        /*Riotrna la lista di annuncio per il settore selezionato
-        NOTA: bisogna scegliere il SETTORE,  il salario a QUALSIASI e  il dottorato a NO*/
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /*
+         ***** QUERY 33
+         */
+
         else if ((strcmp($sector, "-")!=0) && (strcmp($salario, "qualsiasi")==0) && (strcmp($selected_radio, "no")==0) && (strcmp($comGenerali, "-")==0) )  {
-            echo 5;
+
             $rows = $store->query($query33, 'rows');
 
             /* display the results in an HTML table */
@@ -485,11 +483,12 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
             }
             echo "</table>";
         }
-        ///////////////////////// QUERY 4 ///////////////////////////////////////////////////////////////
-        /*la query ritorna tutti gli annunci che hanno la stessa città indicata dal candidato e che hanno il settore SCELTO DAL CANDIDATO
-        LE possibili combinazioni oper ottenere output sono: Economico=Torino, Informatico:Milano, Automobilistico:Roma, Agroalimentare:Potenza*/
+        /*
+         ****** QUERY 4
+         */
+
         else if ((strcmp($sector, "$sector")==0) && (strcmp($salario, "-")==0) && (strcmp($selected_radio, "no")==0)  && (strcmp($citta, "-")!=0) && (strcmp($comGenerali, "-")==0))  {
-            echo 6;
+
             $rows = $store->query($query4, 'rows');
 
             /* display the results in an HTML table */
@@ -507,19 +506,18 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
                 /*Stampo le sottostinge dell'URI contente solo i nomi*/
                 print "<tr><td>" .substr($row['annuncio'], strpos($row['annuncio'], "#") + 1). "</td>
                              <td> ".substr($row['descrizione'], strpos($row['descrizione'], "#") + 1)." </td>
-                              <td> ".$row['contratto']." </td>
+                              <td> ".substr($row['contratto'], strpos($row['contratto'], "#") + 1)." </td>
                                <td> ".$row['ore']." </td>
                              </tr>";
             }
             echo "</table>";
         }
 
-        ///////////////////////// QUERY 5 ///////////////////////////////////////////////////////////////
-    /*Trova tutti gli annunci che, una volta SCELTA LA COMPETENZA, abbiano il salario più alto  con un monte ore compreso tra le 6 e 8 e che abbia come competenze richieste QUELLE SELEZIONATE DALL'UTENTE
+        /*
+         ****** QUERY 5
+         */
 
-    */
         else if ((strcmp($sector, "$sector")==0) && (strcmp($salario, "-")==0) && (strcmp($selected_radio, "no")==0)  && (strcmp($citta, "-")==0) && (strcmp($comGenerali, "-")!=0) )  {
-            echo 7;
             $rows = $store->query($query5, 'rows');
 
             /* display the results in an HTML table */
@@ -546,7 +544,11 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
             }
             echo "</table>";
         }
-        /*Caso di default*/
+
+        /*
+         * Caso di default
+         *
+         */
         else {
             echo "Default";
             echo "<table border='1'  class=\"table table-small-font table-sm table-bordered table-striped\" >
@@ -563,20 +565,11 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
         }
 
 
-        /////////////////////////////////////
-
-        /* execute the query */
-        //$rows = $store->query($query, 'rows');
-
 
         if ($errs = $store->getErrors()) {
             echo "Query errors" ;
             print_r($errs);
         }
-
-
-
-
 
         ?>
 
