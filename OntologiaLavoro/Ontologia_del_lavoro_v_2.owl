@@ -133,7 +133,6 @@
 
     <owl:ObjectProperty rdf:about="http://purl.org/cerif/frapo/hasCurriculumVitae">
         <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#possiede"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2000/10/swap/pim/contact#Person"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
         <rdfs:comment xml:lang="it">An object property linking a person to an on-line version of that person&apos;s curriculum vitae.</rdfs:comment>
         <rdfs:label xml:lang="it">frapo:hasCurriculumVitae</rdfs:label>
@@ -855,14 +854,6 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     
 
 
-    <!-- http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl#Agent -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl#Agent">
-        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role -->
 
     <owl:Class rdf:about="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role"/>
@@ -1139,14 +1130,13 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato">
-        <owl:equivalentClass rdf:resource="http://www.w3.org/2000/10/swap/pim/contact#Person"/>
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#possiede"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#CV"/>
             </owl:Restriction>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <rdfs:comment xml:lang="it">Soggetto alla ricerca di un posto di lavoro</rdfs:comment>
         <rdfs:label xml:lang="it">Candidato</rdfs:label>
     </owl:Class>
@@ -1977,15 +1967,6 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
         <rdfs:comment xml:lang="it">Numero di telefono</rdfs:comment>
         <rdfs:label xml:lang="it">phone</rdfs:label>
     </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/2000/10/swap/pim/contact#Person -->
-
-    <rdf:Description rdf:about="http://www.w3.org/2000/10/swap/pim/contact#Person">
-        <rdfs:comment xml:lang="it">A person</rdfs:comment>
-        <rdfs:label xml:lang="it">Person</rdfs:label>
-    </rdf:Description>
     
 
 

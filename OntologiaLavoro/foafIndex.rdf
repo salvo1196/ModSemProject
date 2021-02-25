@@ -431,14 +431,6 @@
     
 
 
-    <!-- http://www.w3.org/2000/10/swap/pim/contact#Person -->
-
-    <owl:Class rdf:about="http://www.w3.org/2000/10/swap/pim/contact#Person">
-        <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.w3.org/2002/07/owl#Thing -->
 
     <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
