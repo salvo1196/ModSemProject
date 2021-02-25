@@ -153,6 +153,22 @@
     
 
 
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#hasRole">
+        <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#isRoleOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#isRoleOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#isRoleOf"/>
+    
+
+
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#CV_è_di -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CV_è_di">
@@ -2942,8 +2958,8 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#funzioniOccupate_Marco">
         <rdf:type rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#FunzioniOccupate"/>
-        <nome>Developer</nome>
         <objectrole:hasRole rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#impiegato"/>
+        <nome>Developer</nome>
         <rdfs:comment xml:lang="it">funzioni lavorative occupate dal candidato Marco</rdfs:comment>
         <rdfs:label xml:lang="it">funzioniOccupate_Marco</rdfs:label>
     </owl:NamedIndividual>
