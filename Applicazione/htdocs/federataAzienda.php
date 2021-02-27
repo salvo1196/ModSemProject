@@ -111,7 +111,7 @@
         );
 
         $jsoconfig = array(
-            "remote_store_endpoint" => "http://192.168.184.1:7200/repositories/JobSearchOntology",
+            "remote_store_endpoint" => "http://192.168.184.1:7200/repositories/JobSearchOntologyProject",
         );
 
         $store = ARC2::getRemoteStore($dbpconfig);
@@ -145,7 +145,6 @@ $query1 = "
         SELECT distinct ?name  ?birth 
         WHERE{
   				?p a dbo:Person .
-                ?p dbo:knownFor ?knownFor.
                 ?p dbo:occupation ?occupation.
                 ?p foaf:name ?name .
                 ?p dbo:birthDate ?birth.
@@ -170,9 +169,7 @@ $query1 = "
              ?candidato :possiede ?cv.
              ?cv :contiene ?campi_cv.
              ?campi_cv :haCampo ?infoPersonali.
-             ?infoPersonali foaf:firstName ?firstName;
-                           foaf:surname ?surname;
-                           :dataNascita ?nascita.
+             ?infoPersonali :dataNascita ?nascita.
                            
               ?candidato :haSettoreDiInteresse ?settore.
               

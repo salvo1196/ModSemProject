@@ -141,7 +141,7 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
         include_once('semsol-arc2-586f303/ARC2.php');
 
         $jsoconfig = array(
-            "remote_store_endpoint" => "http://192.168.184.1:7200/repositories/JobSearchOntology",
+            "remote_store_endpoint" => "http://192.168.184.1:7200/repositories/JobSearchOntologyProject",
         );
 
         $store = ARC2::getRemoteStore($jsoconfig);
@@ -170,6 +170,7 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
                 break;
             case 'agroAlimentare':
                 $sector_query = 'AgroAlimentare';
+
         }
 
         /*
@@ -200,14 +201,14 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
           SELECT ?azienda ?annuncio ?competenzeRichiesteDettagli ?contratto ?salario
             WHERE {
                 ?azienda :pubblica ?annuncio;
-                               :haSettoreAzienda ?informatico.
+                               :haSettoreAzienda ?settore.
                 ?annuncio :salarioMensile ?salario;
                                :competenzeRichiesteDettagli ?competenzeRichiesteDettagli;
                                :contrattoProposto ?contratto.
                 FILTER (?salario = $salario).
                 FILTER regex(str(?competenzeRichiesteDettagli),  '$competenze').
                 
-                ?informatico rdf:type :$sector_query.
+                ?settore rdf:type :$sector_query.
                 ?annuncio rdf:type :Annuncio.
             }
           ";
@@ -283,7 +284,7 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
 
 
         /*
-         * Restituisce l'annuncio, la sua descrizone, il contratto proposto e le ore giornaliere per tutti gli annunci che si trovano
+         * Restituisce l'annuncio, la sua descrizione, il contratto proposto e le ore giornaliere per tutti gli annunci che si trovano
          * nella città scelta dell'utente con il settore richiesto
          */
         $query4= "
@@ -293,15 +294,7 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
           
            SELECT DISTINCT ?annuncio ?descrizione ?contratto ?ore
                 WHERE{
-                    ?candidato :possiede ?cv.
-                     ?cv :contiene ?campi_cv.
-                     ?campi_cv :haCampo ?infoPersonali;
-                                    :haCampo?competenze.
-                          ?competenze :haCompetenze ?competenzeCandidato.
-
-                                  
-                    ?annuncio :haCompetenzeRichieste ?competenzeRichieste;
-                               :haSettoreAnnuncio ?settore;
+                    ?annuncio :haSettoreAnnuncio ?settore;
                                frapo:hasCountry ?countyAnnuncio;
                                :descrizione ?descrizione;
                                :contrattoProposto ?contratto;
@@ -310,11 +303,7 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
     				FILTER regex(str(?countyAnnuncio),  '$citta')               
     
                     ?annuncio rdf:type :Annuncio.
-                    ?cv rdf:type :CV.
-                    ?settore rdf:type :$sector_query.
-                   
-                    ?campi_cv rdf:type :Campi_CV.
-                                  ?infoPersonali rdf:type :InfoPersonali.
+                    ?settore rdf:type :$sector_query.  
                 }
         ";
 
@@ -327,19 +316,20 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
           PREFIX foaf: <http://xmlns.com/foaf/0.1/>
           PREFIX frapo: <http://purl.org/cerif/frapo/>
           
-             SELECT  ?annuncio (MAX(?salario) AS ?salarioPiùAlto) ?oreLavoro ?settore
-                WHERE{
-                    ?annuncio :haCompetenzeRichieste ?altreCompetenze;
-                    :salarioMensile ?salario;
-                    :oreDiLavoro ?oreLavoro;
-                    :haSettoreAnnuncio ?settore.
-                        
-                    FILTER(?oreLavoro > 5 && ?oreLavoro <9).
-                    ?annuncio rdf:type :Annuncio.
-                    ?altreCompetenze rdf:type :$comGenerali.
-                    ?settore rdf:type :$sector_query.
-                            } 
-                   GROUP BY ?annuncio ?oreLavoro ?settore
+              SELECT  ?annuncio ?salario ?oreLavoro ?settore
+                    WHERE{
+                        ?annuncio :haCompetenzeRichieste ?compRichieste;
+                        :salarioMensile ?salario;
+                        :oreDiLavoro ?oreLavoro;
+                        :haSettoreAnnuncio ?settore.
+                            
+                        FILTER(?oreLavoro > 5 && ?oreLavoro <9).
+                        ?annuncio rdf:type :Annuncio.
+                        ?compRichieste rdf:type :$comGenerali.
+                        ?settore rdf:type :$sector_query.
+                    } 
+                    GROUP BY ?annuncio ?salario ?oreLavoro ?settore
+                    ORDER BY DESC(?salario)
         ";
 
 
@@ -537,7 +527,7 @@ alla ricerca degli annunci ad esso più consoni, attraverso i parametri specific
                 /*Stampo le sottostinge dell'URI contente solo i nomi*/
                 print "<tr><td>" .substr($row['annuncio'], strpos($row['annuncio'], "#") + 1). "</td>
                            
-                                <td> ".$row['salarioPiùAlto']." </td>
+                                <td> ".$row['salario']." </td>
                                <td> ".$row['oreLavoro']." </td>
                                 <td>" .substr($row['settore'], strpos($row['settore'], "#") + 1). "</td>
                              </tr>";

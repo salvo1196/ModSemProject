@@ -114,7 +114,7 @@ su JSO e DBpedia le aziende locate nella città selezionata
 
         // endpoint JSO
         $jsoconfig = array(
-            "remote_store_endpoint" => "http://192.168.184.1:7200/repositories/JobSearchOntology",
+            "remote_store_endpoint" => "http://192.168.184.1:7200/repositories/JobSearchOntologyProject",
 
         );
 
@@ -160,10 +160,10 @@ su JSO e DBpedia le aziende locate nella città selezionata
         SELECT distinct ?impresa ?country ?description
         WHERE {
              
-               ?impresa a dbo:Company .
-               ?impresa dbo:country ?country.
-               ?impresa foaf:name ?name .
-               ?impresa dbo:abstract ?description.
+               ?impresa a dbo:Company;
+                     dbo:country ?country;
+                     foaf:name ?name ;
+                     dbo:abstract ?description.
                 FILTER( langMatches(lang(?description),'it') ).
                 FILTER regex(str(?country), '$search_dbo').
         

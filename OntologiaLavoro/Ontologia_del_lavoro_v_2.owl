@@ -330,11 +330,19 @@
     
 
 
+    <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#haSettore -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettore">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAnnuncio -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAnnuncio">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettore"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#ePubblicato"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAzienda"/>
@@ -348,9 +356,9 @@
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAzienda -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAzienda">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettore"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
         <rdfs:comment xml:lang="it">indica il settore in cui opera un&apos;azienda</rdfs:comment>
         <rdfs:label xml:lang="it">haSettoreAzienda</rdfs:label>
     </owl:ObjectProperty>
@@ -360,9 +368,9 @@
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreDiInteresse -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreDiInteresse">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettore"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#lavoraPer"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAzienda"/>
@@ -382,9 +390,8 @@
     <!-- http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreStudi -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreStudi">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettore"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#StudiUniversitari"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Settore"/>
         <rdfs:comment xml:lang="it">indica il settore di studi</rdfs:comment>
         <rdfs:label xml:lang="it">haSettoreStudi</rdfs:label>
     </owl:ObjectProperty>
@@ -945,7 +952,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AnnuncioCondizioniVantaggiose">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Annuncio"/>
-        <rdfs:comment xml:lang="it">Annuncio le cui condizioni contrattuli sono vantaggiose</rdfs:comment>
+        <rdfs:comment xml:lang="it">Annuncio le cui condizioni contrattuli sono vantaggiose (regola 2)</rdfs:comment>
         <rdfs:label xml:lang="it">AnnuncioCondizioniVantaggiose</rdfs:label>
     </owl:Class>
     
@@ -1088,7 +1095,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#AziendaAutomotive">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Azienda"/>
-        <rdfs:comment xml:lang="it">Azienda che si occupa di Automotive</rdfs:comment>
+        <rdfs:comment xml:lang="it">Azienda che si occupa di Automotive (regola 1)</rdfs:comment>
         <rdfs:label xml:lang="it">AziendaAutomotive</rdfs:label>
     </owl:Class>
     
@@ -1253,7 +1260,7 @@ This job title properly refers to the role held by that person (e.g. &apos;Head 
 
     <owl:Class rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#CandidatoSecondoLavoro">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/OntologiaRicercaLavoro#Candidato"/>
-        <rdfs:comment xml:lang="it">Candidato che ha già un lavoro e ne cerca un altro</rdfs:comment>
+        <rdfs:comment xml:lang="it">Candidato che ha già un lavoro e ne cerca un altro (regola 5)</rdfs:comment>
         <rdfs:label xml:lang="it">CandidatoSecondoLavoro</rdfs:label>
     </owl:Class>
     

@@ -135,10 +135,9 @@
         <?php
         /* ARC2 static class inclusion */
         include_once('semsol/ARC2.php');
-
         // endpoint dell'ontologia JSO
         $jsoconfig = array(
-            "remote_store_endpoint" => "http://192.168.184.1:7200/repositories/JobSearchOntology",
+            "remote_store_endpoint" => "http://192.168.184.1:7200/repositories/JobSearchOntologyProject",
         );
 
         $store = ARC2::getRemoteStore($jsoconfig);
@@ -169,7 +168,7 @@
             case 'dottorato':
                 $livelloStudi = 'Dottorato';
                 $livelloStudi_h = 'Dottorato';
-
+                break;
             default :
                 $livelloStudi ='-';
                 $livelloStudi_h = '-';;
@@ -200,7 +199,7 @@
 
         /*
          * La seguente query viene utilizzata dalle aziende per  visualizzare i candidati con il titolo di studi specificato,
-         * andando a trovare nell’ontologia tutti i candidati che hanno il titolo di studi richiesto (es: Laurea Specialistica)
+         *
          */
         $query1 = "
           PREFIX : <http://www.semanticweb.org/OntologiaRicercaLavoro#>
