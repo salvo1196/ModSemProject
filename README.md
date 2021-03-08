@@ -1,5 +1,5 @@
 # ModSemProject 20-21
-##Job Search Ontology (JSO)
+## Job Search Ontology (JSO)
  In questo progetto viene proposta un'ontologia con una Web Application ad essa associtata per la ricerca del lavoro.
 
 ## Struttura della directory
