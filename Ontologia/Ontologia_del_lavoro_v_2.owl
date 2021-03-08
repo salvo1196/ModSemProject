@@ -347,7 +347,8 @@
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#ePubblicato"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAzienda"/>
         </owl:propertyChainAxiom>
-        <rdfs:comment xml:lang="it">indica il settore di un annuncio</rdfs:comment>
+        <rdfs:comment xml:lang="it">Property chain che indica il settore di un annuncio.
+ &quot;Se l&apos;Azienda opera in un determinato Settore e l&apos;Annuncio è pubblicato da tale Azienda, allora l&apos;annuncio sarà per il Settore stesso in cui opera l&apos;Azienda.&quot;</rdfs:comment>
         <rdfs:label xml:lang="it">haSettoreAnnuncio</rdfs:label>
     </owl:ObjectProperty>
     
@@ -381,7 +382,8 @@
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haCampo"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreStudi"/>
         </owl:propertyChainAxiom>
-        <rdfs:comment xml:lang="it">indica il settore di interesse di un candidato</rdfs:comment>
+        <rdfs:comment xml:lang="it">Property chain che indica il settore di interesse di un candidato.
+Il settore d&apos;interesse del candidato viene inferito sia dal settore di studi sia settore in cui opera l&apos;azienda per il quale esso lavora.</rdfs:comment>
         <rdfs:label xml:lang="it">haSettoreDiInteresse</rdfs:label>
     </owl:ObjectProperty>
     
@@ -409,7 +411,8 @@
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#lavoraPer"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/OntologiaRicercaLavoro#haSettoreAzienda"/>
         </owl:propertyChainAxiom>
-        <rdfs:comment xml:lang="it">indica il settore in cui lavora un candidato</rdfs:comment>
+        <rdfs:comment xml:lang="it">Property chain  che indica il settore in cui lavora un candidato.
+Tale property permette di dire che &quot;se un Candidato lavora in un Azienda e quest&apos;ultima opera in un determinato Settore, allora si può inferire che il Candidato lavora in tal Settore&quot;.</rdfs:comment>
         <rdfs:label xml:lang="it">lavoraNelSettore</rdfs:label>
     </owl:ObjectProperty>
     
